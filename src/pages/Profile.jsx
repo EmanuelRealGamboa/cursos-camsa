@@ -55,8 +55,8 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-6 sm:py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header con avatar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,16 +66,16 @@ const Profile = () => {
             {/* Background gradient */}
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-logevity to-logevity-dark" />
 
-            <div className="relative pt-16 pb-6 text-center">
+            <div className="relative pt-12 sm:pt-16 pb-4 sm:pb-6 text-center">
               {/* Avatar */}
               <div className="relative inline-block">
                 <img
                   src={user?.avatar || `https://ui-avatars.com/api/?name=${user?.name || 'U'}&background=4A90A4&color=fff&size=128`}
                   alt={user?.name}
-                  className="w-24 h-24 rounded-full border-4 border-white shadow-lg"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-white shadow-lg"
                 />
-                <button className="absolute bottom-0 right-0 p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors">
-                  <Camera className="w-4 h-4 text-gray-600" />
+                <button className="absolute bottom-0 right-0 p-1.5 sm:p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                  <Camera className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                 </button>
               </div>
 
@@ -141,7 +141,7 @@ const Profile = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-4 sm:mt-6"
         >
           {[
             { icon: BookOpen, label: 'Cursos iniciados', value: stats.coursesStarted, color: 'blue' },
@@ -149,14 +149,14 @@ const Profile = () => {
             { icon: Clock, label: 'Lecciones vistas', value: stats.lessonsCompleted, color: 'green' },
             { icon: Calendar, label: 'Días de racha', value: stats.streak, color: 'orange' }
           ].map((stat, index) => (
-            <Card key={index}>
-              <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg bg-${stat.color}-100`}>
-                  <stat.icon className={`w-5 h-5 text-${stat.color}-500`} />
+            <Card key={index} className="p-3 sm:p-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className={`p-2 rounded-lg bg-${stat.color}-100 dark:bg-${stat.color}-900/20 flex-shrink-0`}>
+                  <stat.icon className={`w-4 h-4 sm:w-5 sm:h-5 text-${stat.color}-500 dark:text-${stat.color}-400`} />
                 </div>
-                <div>
-                  <p className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
-                  <p className="text-xs text-gray-500">{stat.label}</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xl sm:text-2xl font-heading font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{stat.label}</p>
                 </div>
               </div>
             </Card>
@@ -186,11 +186,11 @@ const Profile = () => {
                 const progressData = getCourseProgress(course.id, course.modules.length, lessonsPerModule);
 
                 return (
-                  <div key={course.id} className="flex items-center gap-4">
+                  <div key={course.id} className="flex items-center gap-3 sm:gap-4">
                     <img
                       src={course.thumbnail}
                       alt={course.title}
-                      className="w-16 h-12 object-cover rounded-lg"
+                      className="w-14 h-10 sm:w-16 sm:h-12 object-cover rounded-lg flex-shrink-0"
                     />
                     <div className="flex-1">
                       <h3 className="font-medium text-gray-900">{course.title}</h3>

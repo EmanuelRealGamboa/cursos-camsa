@@ -125,15 +125,15 @@ const Certificates = () => {
 
   if (certificates.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center"
+              className="w-24 h-24 mx-auto mb-6 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center"
             >
-              <Award className="w-12 h-12 text-gray-400" />
+              <Award className="w-12 h-12 text-gray-400 dark:text-gray-500" />
             </motion.div>
             <h1 className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">
               Aún no tienes certificados
@@ -151,7 +151,7 @@ const Certificates = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -168,7 +168,7 @@ const Certificates = () => {
         </motion.div>
 
         {/* Lista de certificados */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
@@ -178,20 +178,20 @@ const Certificates = () => {
             >
               <Card
                 hover
-                className="cursor-pointer"
+                className="cursor-pointer p-4 sm:p-6"
                 onClick={() => setSelectedCertificate(cert)}
               >
                 {/* Preview del certificado */}
-                <div className="bg-gradient-to-br from-logevity-light to-white rounded-xl p-6 mb-4 border border-logevity/20 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-logevity-light to-white dark:from-gray-700 dark:to-gray-800 rounded-xl p-4 sm:p-6 mb-3 sm:mb-4 border border-logevity/20 dark:border-gray-600 relative overflow-hidden">
                   <div className="absolute top-2 right-2">
-                    <Award className="w-8 h-8 text-logevity/30" />
+                    <Award className="w-6 h-6 sm:w-8 sm:h-8 text-logevity/30 dark:text-logevity-accent/30" />
                   </div>
                   <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-logevity mb-2" />
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">
+                    <Heart className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-logevity dark:text-logevity-accent mb-2" />
+                    <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Certificado
                     </p>
-                    <p className="font-semibold text-gray-900 mt-1 line-clamp-2">
+                    <p className="font-semibold text-gray-900 dark:text-gray-100 mt-1 line-clamp-2 text-sm sm:text-base">
                       {cert.moduleTitle}
                     </p>
                   </div>
@@ -203,13 +203,13 @@ const Certificates = () => {
                     <CheckCircle className="w-3 h-3 mr-1" />
                     Completado
                   </Badge>
-                  <h3 className="font-semibold text-gray-900 mb-1">
+                  <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1 text-sm sm:text-base">
                     {cert.moduleTitle}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-3">
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3">
                     {cert.courseTitle}
                   </p>
-                  <div className="flex items-center text-xs text-gray-400">
+                  <div className="flex items-center text-xs text-gray-400 dark:text-gray-500">
                     <Calendar className="w-3 h-3 mr-1" />
                     {formatDate(cert.issuedAt)}
                   </div>
@@ -270,32 +270,33 @@ const Certificates = () => {
                   </p>
 
                   {/* Fecha y número */}
-                  <div className="flex items-center justify-center gap-8 text-sm text-gray-500">
-                    <div>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                    <div className="text-center">
                       <p className="font-medium">Fecha de emisión</p>
                       <p>{formatDate(selectedCertificate.issuedAt)}</p>
                     </div>
-                    <div>
+                    <div className="text-center">
                       <p className="font-medium">No. de certificado</p>
-                      <p>{selectedCertificate.certificateNumber}</p>
+                      <p className="break-all">{selectedCertificate.certificateNumber}</p>
                     </div>
                   </div>
 
                   {/* Firma */}
-                  <div className="mt-6 pt-6 border-t border-gray-200">
-                    <p className="text-logevity font-semibold">LOGEVITY</p>
-                    <p className="text-xs text-gray-400">Medicina Regenerativa</p>
+                  <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <p className="text-logevity dark:text-logevity-accent font-semibold">LOGEVITY</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">Medicina Regenerativa</p>
                   </div>
                 </div>
               </div>
 
               {/* Acciones */}
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   variant="primary"
                   className="flex-1"
                   icon={Download}
                   onClick={() => handleDownload(selectedCertificate)}
+                  size="sm"
                 >
                   Descargar certificado
                 </Button>

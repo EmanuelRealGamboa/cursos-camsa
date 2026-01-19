@@ -18,7 +18,8 @@ import {
   ThumbsUp,
   Share2,
   ChevronRight,
-  Check
+  Check,
+  X
 } from 'lucide-react';
 import { useProgress } from '../context/ProgressContext';
 import { Card, Button, Badge } from '../components/ui';
@@ -33,6 +34,7 @@ const LessonView = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
   const [lessonCompleted, setLessonCompleted] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const course = useMemo(() => {
     return coursesData.find(c => c.id === parseInt(courseId));
@@ -114,20 +116,28 @@ const LessonView = () => {
             <span className="hidden sm:inline">Volver al curso</span>
           </button>
 
-          <div className="flex items-center gap-2 text-gray-300 dark:text-gray-200">
-            <span className="text-sm text-white dark:text-white">{course.title}</span>
-            <ChevronRight className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-            <span className="text-sm text-white dark:text-white">{module.title.replace(/Módulo \d+: /, '')}</span>
+          <div className="hidden md:flex items-center gap-2 text-gray-300 dark:text-gray-200 flex-1 justify-center px-4">
+            <span className="text-sm text-white dark:text-white truncate max-w-xs">{course.title}</span>
+            <ChevronRight className="w-4 h-4 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+            <span className="text-sm text-white dark:text-white truncate max-w-xs">{module.title.replace(/Módulo \d+: /, '')}</span>
           </div>
 
-          <div className="text-gray-400 dark:text-gray-300 text-sm">
-            {currentIndex} / {totalLessons}
+          <div className="flex items-center gap-3">
+            <div className="text-gray-400 dark:text-gray-300 text-sm hidden sm:block">
+              {currentIndex} / {totalLessons}
+            </div>
+            <button
+              onClick={() => setShowSidebar(!showSidebar)}
+              className="lg:hidden p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
+            >
+              <BookOpen className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-3 gap-0">
+        <div className="grid lg:grid-cols-3 gap-0 relative">
           {/* Video player */}
           <div className="lg:col-span-2">
             {/* Video container */}
@@ -175,98 +185,108 @@ const LessonView = () => {
             </div>
 
             {/* Controles del video */}
-            <div className="bg-gray-800 px-4 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-4">
+            <div className="bg-gray-800 px-2 sm:px-4 py-3 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 sm:gap-4">
                 <button
                   onClick={() => prevLesson && navigate(`/course/${course.id}/lesson/${module.id}/${prevLesson.id}`)}
                   disabled={!prevLesson}
                   className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Lección anterior"
                 >
-                  <SkipBack className="w-5 h-5" />
+                  <SkipBack className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="p-3 bg-logevity text-white rounded-full hover:bg-logevity-dark transition-colors"
+                  className="p-2 sm:p-3 bg-logevity text-white rounded-full hover:bg-logevity-dark transition-colors"
+                  aria-label={isPlaying ? "Pausar" : "Reproducir"}
                 >
-                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                  {isPlaying ? <Pause className="w-4 h-4 sm:w-5 sm:h-5" /> : <Play className="w-4 h-4 sm:w-5 sm:h-5" />}
                 </button>
                 <button
                   onClick={handleNextLesson}
                   className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
+                  aria-label="Siguiente lección"
                 >
-                  <SkipForward className="w-5 h-5" />
+                  <SkipForward className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 sm:gap-4">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
-                  className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
+                  className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors hidden sm:block"
+                  aria-label={isMuted ? "Activar sonido" : "Silenciar"}
                 >
                   {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                 </button>
-                <button className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
+                <button className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors hidden sm:block" aria-label="Pantalla completa">
                   <Maximize className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
             {/* Información de la lección */}
-            <div className="bg-gray-800 p-6">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div>
+            <div className="bg-gray-800 p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <div className="flex-1 min-w-0">
                   <Badge variant="primary" className="mb-2">
                     Lección {currentIndex}
                   </Badge>
-                  <h1 className="text-2xl font-bold text-white">
+                  <h1 className="text-xl sm:text-2xl font-bold text-white">
                     {lesson.title}
                   </h1>
                 </div>
-                {!lessonCompleted ? (
-                  <Button
-                    onClick={handleMarkComplete}
-                    variant="accent"
-                    icon={CheckCircle}
-                  >
-                    Marcar completa
-                  </Button>
-                ) : (
-                  <Badge variant="success" size="lg" icon={CheckCircle}>
-                    Completada
-                  </Badge>
-                )}
+                <div className="flex-shrink-0">
+                  {!lessonCompleted ? (
+                    <Button
+                      onClick={handleMarkComplete}
+                      variant="accent"
+                      icon={CheckCircle}
+                      size="sm"
+                      className="w-full sm:w-auto"
+                    >
+                      <span className="hidden sm:inline">Marcar completa</span>
+                      <span className="sm:hidden">Completar</span>
+                    </Button>
+                  ) : (
+                    <Badge variant="success" size="lg" icon={CheckCircle}>
+                      <span className="hidden sm:inline">Completada</span>
+                      <span className="sm:hidden">✓</span>
+                    </Badge>
+                  )}
+                </div>
               </div>
 
-              <p className="text-gray-400 dark:text-gray-300 mb-6">
+              <p className="text-gray-400 dark:text-gray-300 mb-6 text-sm sm:text-base">
                 {lesson.description}
               </p>
 
-              <div className="flex items-center gap-6 text-gray-400 dark:text-gray-300">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-gray-400 dark:text-gray-300 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
                   <span>{lesson.duration}</span>
                 </div>
                 <button className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                   <ThumbsUp className="w-4 h-4" />
-                  <span>Me gusta</span>
+                  <span className="hidden sm:inline">Me gusta</span>
                 </button>
                 <button className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                   <Share2 className="w-4 h-4" />
-                  <span>Compartir</span>
+                  <span className="hidden sm:inline">Compartir</span>
                 </button>
               </div>
 
               {/* Navegación */}
-              <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-700">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-6 sm:mt-8 pt-6 border-t border-gray-700">
                 {prevLesson ? (
                   <button
                     onClick={() => navigate(`/course/${course.id}/lesson/${module.id}/${prevLesson.id}`)}
-                    className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors text-left"
                   >
-                    <ArrowLeft className="w-5 h-5" />
-                    <div className="text-left">
+                    <ArrowLeft className="w-5 h-5 flex-shrink-0" />
+                    <div className="min-w-0">
                       <p className="text-xs text-gray-500 dark:text-gray-400">Anterior</p>
-                      <p className="text-sm text-white dark:text-white">{prevLesson.title}</p>
+                      <p className="text-sm text-white dark:text-white truncate">{prevLesson.title}</p>
                     </div>
                   </button>
                 ) : (
@@ -277,15 +297,95 @@ const LessonView = () => {
                   onClick={handleNextLesson}
                   icon={ArrowRight}
                   iconPosition="right"
+                  className="w-full sm:w-auto"
+                  size="sm"
                 >
-                  {nextLesson ? 'Siguiente lección' : 'Ir al Quiz'}
+                  <span className="hidden sm:inline">{nextLesson ? 'Siguiente lección' : 'Ir al Quiz'}</span>
+                  <span className="sm:hidden">{nextLesson ? 'Siguiente' : 'Quiz'}</span>
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Sidebar - Lista de lecciones */}
-          <div className="bg-gray-800 border-l border-gray-700 overflow-y-auto max-h-[calc(100vh-64px)]">
+          <AnimatePresence>
+            {showSidebar && (
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                  onClick={() => setShowSidebar(false)}
+                />
+                <motion.div
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '100%' }}
+                  transition={{ type: 'tween', duration: 0.3 }}
+                  className="fixed right-0 top-16 bottom-0 w-80 bg-gray-800 border-l border-gray-700 overflow-y-auto z-50 lg:hidden"
+                >
+                  <div className="p-4 border-b border-gray-700">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-semibold text-white">{module.title}</h3>
+                      <button
+                        onClick={() => setShowSidebar(false)}
+                        className="p-1 text-gray-400 hover:text-white"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                    <p className="text-sm text-gray-400 dark:text-gray-300">
+                      {module.lessons.filter(l => isLessonComplete(course.id, module.id, l.id)).length} de {module.lessons.length} completadas
+                    </p>
+                  </div>
+                  <div className="divide-y divide-gray-700">
+                    {module.lessons.map((l, index) => {
+                      const isCurrentLesson = l.id === lesson.id;
+                      const isComplete = isLessonComplete(course.id, module.id, l.id);
+                      return (
+                        <button
+                          key={l.id}
+                          onClick={() => {
+                            navigate(`/course/${course.id}/lesson/${module.id}/${l.id}`);
+                            setShowSidebar(false);
+                          }}
+                          className={`w-full p-4 text-left hover:bg-gray-700 transition-colors ${
+                            isCurrentLesson ? 'bg-gray-700' : ''
+                          }`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                              isComplete
+                                ? 'bg-green-500 text-white'
+                                : isCurrentLesson
+                                  ? 'bg-logevity text-white'
+                                  : 'bg-gray-600 text-gray-300'
+                            }`}>
+                              {isComplete ? (
+                                <CheckCircle className="w-4 h-4" />
+                              ) : (
+                                <span className="text-sm font-medium">{index + 1}</span>
+                              )}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className={`text-sm ${isCurrentLesson ? 'text-white font-semibold' : 'text-gray-300'} truncate`}>
+                                {l.title}
+                              </p>
+                              <p className="text-xs text-gray-500 mt-0.5">{l.duration}</p>
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
+          
+          {/* Sidebar Desktop */}
+          <div className="hidden lg:block bg-gray-800 border-l border-gray-700 overflow-y-auto max-h-[calc(100vh-64px)]">
             <div className="p-4 border-b border-gray-700">
               <h3 className="font-semibold text-white">{module.title}</h3>
               <p className="text-sm text-gray-400 dark:text-gray-300 mt-1">

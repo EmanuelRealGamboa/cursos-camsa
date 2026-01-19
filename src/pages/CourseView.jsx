@@ -103,19 +103,19 @@ const CourseView = () => {
             <span>Volver</span>
           </button>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <Badge variant="accent" className="mb-4">
+                <Badge variant="accent" className="mb-3 sm:mb-4">
                   {course.level}
                 </Badge>
-                <h1 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold mb-3 sm:mb-4">
                   {course.title}
                 </h1>
-                <p className="text-white/80 text-lg mb-6">
+                <p className="text-white/80 text-base sm:text-lg mb-4 sm:mb-6">
                   {course.description}
                 </p>
 
@@ -243,7 +243,7 @@ const CourseView = () => {
                     {/* Header del módulo */}
                     <button
                       onClick={() => isUnlocked && toggleModule(module.id)}
-                      className={`w-full p-4 flex items-center justify-between ${isUnlocked ? 'hover:bg-gray-50' : 'cursor-not-allowed'} transition-colors`}
+                      className={`w-full p-4 flex items-center justify-between group ${isUnlocked ? 'hover:bg-gray-50 dark:hover:bg-gray-700' : 'cursor-not-allowed'} transition-colors`}
                       disabled={!isUnlocked}
                     >
                       <div className="flex items-center gap-4">
@@ -265,13 +265,13 @@ const CourseView = () => {
                           )}
                         </div>
                         <div className="text-left">
-                          <h3 className="font-semibold text-gray-900 dark:text-white">
+                          <h3 className="font-semibold text-gray-900 dark:text-white group-hover:!text-gray-900 dark:group-hover:!text-white">
                             {module.title}
                           </h3>
-                          <p className="text-sm text-gray-500 dark:text-gray-300">
+                          <p className="text-sm text-gray-500 dark:text-gray-300 group-hover:!text-gray-700 dark:group-hover:!text-gray-300">
                             {completedLessons} de {module.lessons.length} lecciones
                             {hasCert && (
-                              <span className="ml-2 text-yellow-600">
+                              <span className="ml-2 text-yellow-600 dark:text-yellow-400">
                                 • Certificado obtenido
                               </span>
                             )}
@@ -325,13 +325,13 @@ const CourseView = () => {
                                 <button
                                   key={lesson.id}
                                   onClick={() => navigate(`/course/${course.id}/lesson/${module.id}/${lesson.id}`)}
-                                  className="w-full p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-b-0"
+                                  className="w-full p-4 flex items-center gap-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b border-gray-50 dark:border-gray-700 last:border-b-0 group"
                                 >
                                   <div className={`
                                     w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0
                                     ${isLessonCompleted
-                                      ? 'bg-green-100 text-green-600'
-                                      : 'bg-gray-100 text-gray-400'
+                                      ? 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400'
+                                      : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-300'
                                     }
                                   `}>
                                     {isLessonCompleted ? (
@@ -341,11 +341,11 @@ const CourseView = () => {
                                     )}
                                   </div>
                                   <div className="flex-1 text-left">
-                                    <p className={`font-medium ${isLessonCompleted ? 'text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+                                    <p className={`font-medium ${isLessonCompleted ? 'text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'} group-hover:!text-gray-900 dark:group-hover:!text-white`}>
                                       {lesson.title}
                                     </p>
                                   </div>
-                                  <span className="text-sm text-gray-400">
+                                  <span className="text-sm text-gray-400 dark:text-gray-400 group-hover:!text-gray-600 dark:group-hover:!text-gray-300">
                                     {lesson.duration}
                                   </span>
                                 </button>

@@ -147,21 +147,21 @@ const Dashboard = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8"
         >
           {statCards.map((stat, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="relative overflow-hidden">
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl ${stat.lightColor}`}>
-                    <stat.icon className={`w-6 h-6 ${stat.color.replace('bg-', 'text-')}`} />
+              <Card className="relative overflow-hidden p-3 sm:p-4">
+                <div className="flex items-center gap-2 sm:gap-4">
+                  <div className={`p-2 sm:p-3 rounded-xl ${stat.lightColor} flex-shrink-0`}>
+                    <stat.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.color.replace('bg-', 'text-')}`} />
                   </div>
-                  <div>
-                    <p className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xl sm:text-2xl font-heading font-bold text-gray-900 dark:text-gray-100 truncate">{stat.value}</p>
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">{stat.label}</p>
                   </div>
                 </div>
-                <div className={`absolute -right-4 -bottom-4 w-20 h-20 ${stat.color} opacity-5 rounded-full`} />
+                <div className={`absolute -right-4 -bottom-4 w-20 h-20 ${stat.color} opacity-5 rounded-full hidden sm:block`} />
               </Card>
             </motion.div>
           ))}
@@ -261,8 +261,11 @@ const Dashboard = () => {
                               alt={course.title}
                               className="w-full h-40 object-cover"
                               onError={(e) => {
-                                e.target.src = `https://via.placeholder.com/400x250/D4AF37/FFFFFF?text=${encodeURIComponent(course.title.substring(0, 30))}`;
+                                if (e.target.src.includes('placeholder')) return;
+                                e.target.onerror = null;
+                                e.target.src = `https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop&q=80`;
                               }}
+                              loading="lazy"
                             />
                             {courseProgress.percentage > 0 && (
                               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">

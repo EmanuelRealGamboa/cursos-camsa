@@ -179,8 +179,11 @@ const CoursesList = () => {
                           alt={course.title}
                           className="w-full h-44 object-cover"
                           onError={(e) => {
-                            e.target.src = `https://via.placeholder.com/400x250/D4AF37/FFFFFF?text=${encodeURIComponent(course.title.substring(0, 30))}`;
+                            if (e.target.src.includes('placeholder')) return;
+                            e.target.onerror = null;
+                            e.target.src = `https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop&q=80`;
                           }}
+                          loading="lazy"
                         />
                         {progress.percentage > 0 && (
                           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
