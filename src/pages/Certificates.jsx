@@ -231,10 +231,10 @@ const Certificates = () => {
               {/* Vista previa del certificado */}
               <div
                 ref={certificateRef}
-                className="bg-gradient-to-br from-slate-50 to-sky-50 rounded-xl p-8 mb-6 border-4 border-logevity relative"
+                className="bg-gradient-to-br from-slate-50 to-sky-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6 sm:p-8 mb-6 border-4 border-logevity dark:border-logevity-accent relative"
               >
                 {/* Borde decorativo interno */}
-                <div className="absolute inset-2 border-2 border-logevity-light rounded-lg pointer-events-none" />
+                <div className="absolute inset-2 border-2 border-logevity-light dark:border-logevity-accent/50 rounded-lg pointer-events-none" />
 
                 <div className="text-center relative">
                   {/* Logo */}
@@ -245,27 +245,27 @@ const Certificates = () => {
                   </div>
 
                   {/* Título */}
-                  <h2 className="text-2xl font-heading font-bold text-gray-800 dark:text-gray-100 tracking-wide mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-gray-900 dark:text-gray-100 tracking-wide mb-2 uppercase">
                     CERTIFICADO DE FINALIZACIÓN
                   </h2>
 
-                  <p className="text-gray-500 mb-4">Este certificado se otorga a</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 font-body">Este certificado se otorga a</p>
 
                   {/* Nombre */}
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-3xl sm:text-4xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">
                     {selectedCertificate.userName}
                   </h3>
 
-                  <div className="w-48 h-0.5 bg-logevity mx-auto mb-4" />
+                  <div className="w-48 h-0.5 bg-logevity dark:bg-logevity-accent mx-auto mb-4" />
 
-                  <p className="text-gray-500 mb-2">por completar exitosamente</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2 font-body">por completar exitosamente</p>
 
                   {/* Módulo */}
-                  <h4 className="text-xl font-semibold text-logevity mb-2">
-                    {selectedCertificate.moduleTitle}
+                  <h4 className="text-xl sm:text-2xl font-heading font-semibold text-logevity dark:text-logevity-accent mb-2">
+                    "{selectedCertificate.moduleTitle}"
                   </h4>
 
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 font-body">
                     del curso "{selectedCertificate.courseTitle}"
                   </p>
 

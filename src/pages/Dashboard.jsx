@@ -328,7 +328,7 @@ const Dashboard = () => {
               <Card>
                 <h3 className="font-heading font-semibold text-gray-900 dark:text-white mb-4">Tu progreso general</h3>
                 <div className="space-y-4">
-                  <div className="text-center p-6 bg-gradient-to-br from-logevity-light to-white rounded-xl">
+                  <div className="text-center p-6 bg-gradient-to-br from-logevity-light to-white dark:from-logevity/20 dark:to-gray-800 rounded-xl">
                     <div className="relative w-24 h-24 mx-auto mb-3">
                       <svg className="w-full h-full transform -rotate-90">
                         <circle
@@ -337,6 +337,7 @@ const Dashboard = () => {
                           r="40"
                           fill="none"
                           stroke="#E2E8F0"
+                          className="dark:stroke-gray-700"
                           strokeWidth="8"
                         />
                         <circle
@@ -345,30 +346,31 @@ const Dashboard = () => {
                           r="40"
                           fill="none"
                           stroke="#4A90A4"
+                          className="dark:stroke-logevity-accent"
                           strokeWidth="8"
                           strokeLinecap="round"
                           strokeDasharray={`${(stats.coursesStarted > 0 ? (stats.coursesCompleted / coursesData.length) : 0) * 251.2} 251.2`}
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-logevity">
+                        <span className="text-2xl font-bold text-logevity dark:text-logevity-accent">
                           {Math.round((stats.coursesCompleted / coursesData.length) * 100)}%
                         </span>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 font-body">
                       {stats.coursesCompleted} de {coursesData.length} cursos completados
                     </p>
                   </div>
 
                   {stats.streak > 0 && (
-                    <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl">
-                      <div className="p-2 bg-orange-100 rounded-lg">
-                        <Flame className="w-5 h-5 text-orange-500" />
+                    <div className="flex items-center gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                      <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                        <Flame className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900 dark:text-white">{stats.streak} días seguidos</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-300">¡Sigue así!</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100">{stats.streak} días seguidos</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-300">¡Sigue así!</p>
                       </div>
                     </div>
                   )}
@@ -394,13 +396,13 @@ const Dashboard = () => {
                     {progress.certificates.slice(-3).reverse().map((cert, index) => (
                       <div
                         key={cert.id}
-                        className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl"
+                        className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-xl"
                       >
-                        <div className="p-2 bg-yellow-100 rounded-lg">
-                          <Award className="w-4 h-4 text-yellow-600" />
+                        <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
+                          <Award className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                          <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
                             {cert.moduleTitle}
                           </p>
                           <p className="text-xs text-gray-500 dark:text-gray-300">{cert.courseTitle}</p>

@@ -22,7 +22,7 @@ export const coursesData = [
             id: 1,
             title: "¿Qué es la medicina regenerativa?",
             duration: "12:30",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Definición, historia y alcance de la medicina regenerativa",
             completed: false
           },
@@ -30,7 +30,7 @@ export const coursesData = [
             id: 2,
             title: "Células madre: tipos y características",
             duration: "18:45",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Clasificación de células madre y sus propiedades únicas",
             completed: false
           },
@@ -38,7 +38,7 @@ export const coursesData = [
             id: 3,
             title: "Mecanismos de regeneración celular",
             duration: "15:20",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Cómo funcionan los procesos de regeneración en el organismo",
             completed: false
           },
@@ -46,7 +46,7 @@ export const coursesData = [
             id: 4,
             title: "Aplicaciones clínicas actuales",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54-M",
             description: "Casos de uso reales en la práctica médica",
             completed: false
           }
@@ -109,7 +109,7 @@ export const coursesData = [
             id: 6,
             title: "Vías de administración",
             duration: "16:30",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Métodos de aplicación: intravenosa, local, intralesional",
             completed: false
           },
@@ -117,7 +117,7 @@ export const coursesData = [
             id: 7,
             title: "Dosificación y protocolos",
             duration: "19:15",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Cálculo de dosis y esquemas de tratamiento",
             completed: false
           },
@@ -125,7 +125,7 @@ export const coursesData = [
             id: 8,
             title: "Monitoreo y seguimiento post-tratamiento",
             duration: "14:45",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Evaluación de resultados y control de efectos",
             completed: false
           }
@@ -188,7 +188,7 @@ export const coursesData = [
             id: 10,
             title: "Terapia para tendinopatías",
             duration: "21:30",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Aplicación en tendones y ligamentos",
             completed: false
           },
@@ -196,7 +196,7 @@ export const coursesData = [
             id: 11,
             title: "Fracturas y consolidación ósea",
             duration: "18:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Aceleración de la cicatrización ósea",
             completed: false
           },
@@ -204,7 +204,7 @@ export const coursesData = [
             id: 12,
             title: "Artrosis y degeneración articular",
             duration: "23:15",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Enfoques regenerativos para artrosis",
             completed: false
           }
@@ -282,7 +282,7 @@ export const coursesData = [
             id: 2,
             title: "Sistemas de centrifugación",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Equipos y técnicas de centrifugación",
             completed: false
           },
@@ -290,7 +290,7 @@ export const coursesData = [
             id: 3,
             title: "Preparación de PRP de alta calidad",
             duration: "25:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Protocolos paso a paso para obtener PRP óptimo",
             completed: false
           },
@@ -298,7 +298,7 @@ export const coursesData = [
             id: 4,
             title: "Control de calidad y validación",
             duration: "18:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Cómo verificar la calidad del PRP preparado",
             completed: false
           },
@@ -361,7 +361,7 @@ export const coursesData = [
             id: 6,
             title: "PRP en dermatología estética",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Aplicaciones faciales y corporales",
             completed: false
           },
@@ -369,7 +369,7 @@ export const coursesData = [
             id: 7,
             title: "PRP en medicina deportiva",
             duration: "28:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Lesiones deportivas y recuperación",
             completed: false
           },
@@ -377,7 +377,7 @@ export const coursesData = [
             id: 8,
             title: "PRP en alopecia y regeneración capilar",
             duration: "24:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Tratamiento de pérdida de cabello",
             completed: false
           },
@@ -393,7 +393,7 @@ export const coursesData = [
             id: 10,
             title: "PRP en odontología",
             duration: "19:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Regeneración ósea y periodontal",
             completed: false
           }
@@ -448,7 +448,7 @@ export const coursesData = [
             id: 11,
             title: "PRP combinado con células madre",
             duration: "26:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Sinergia entre PRP y células madre",
             completed: false
           },
@@ -456,7 +456,7 @@ export const coursesData = [
             id: 12,
             title: "PRP con ácido hialurónico",
             duration: "18:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Combinaciones en medicina estética",
             completed: false
           },
@@ -472,7 +472,7 @@ export const coursesData = [
             id: 14,
             title: "PRP en cirugía",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Uso intraoperatorio de PRP",
             completed: false
           },
@@ -480,7 +480,7 @@ export const coursesData = [
             id: 15,
             title: "Casos clínicos complejos",
             duration: "30:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Análisis de casos reales y resultados",
             completed: false
           }
@@ -550,7 +550,7 @@ export const coursesData = [
             id: 1,
             title: "Anatomía facial y envejecimiento",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Comprensión del proceso de envejecimiento",
             completed: false
           },
@@ -566,7 +566,7 @@ export const coursesData = [
             id: 3,
             title: "Células madre en estética facial",
             duration: "28:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Uso de células madre para rejuvenecimiento",
             completed: false
           },
@@ -574,7 +574,7 @@ export const coursesData = [
             id: 4,
             title: "Combinación con otros tratamientos",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Sinergia con láser, hilos y otros procedimientos",
             completed: false
           }
@@ -629,7 +629,7 @@ export const coursesData = [
             id: 5,
             title: "Tratamiento de estrías",
             duration: "24:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Protocolos para atenuación de estrías",
             completed: false
           },
@@ -645,7 +645,7 @@ export const coursesData = [
             id: 7,
             title: "Rejuvenecimiento de manos y cuello",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Técnicas específicas para estas áreas",
             completed: false
           },
@@ -653,7 +653,7 @@ export const coursesData = [
             id: 8,
             title: "Tratamiento de flacidez",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Aplicaciones para mejorar la firmeza cutánea",
             completed: false
           }
@@ -708,7 +708,7 @@ export const coursesData = [
             id: 9,
             title: "Medicina antiaging sistémica",
             duration: "28:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Enfoque integral del envejecimiento",
             completed: false
           },
@@ -724,7 +724,7 @@ export const coursesData = [
             id: 11,
             title: "Nutrición y suplementación",
             duration: "25:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Apoyo nutricional para regeneración",
             completed: false
           },
@@ -732,7 +732,7 @@ export const coursesData = [
             id: 12,
             title: "Seguimiento y mantenimiento",
             duration: "18:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Protocolos de seguimiento a largo plazo",
             completed: false
           }
@@ -802,7 +802,7 @@ export const coursesData = [
             id: 1,
             title: "Origen y características de células mesenquimales",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Fuentes de obtención y propiedades únicas",
             completed: false
           },
@@ -818,7 +818,7 @@ export const coursesData = [
             id: 3,
             title: "Diferenciación y plasticidad",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Capacidades de diferenciación celular",
             completed: false
           }
@@ -866,7 +866,7 @@ export const coursesData = [
             id: 1,
             title: "Neurogénesis y células madre neurales",
             duration: "24:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Regeneración del tejido nervioso",
             completed: false
           },
@@ -874,7 +874,7 @@ export const coursesData = [
             id: 2,
             title: "Terapias para lesiones medulares",
             duration: "28:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Aplicaciones en trauma medular",
             completed: false
           }
@@ -930,7 +930,7 @@ export const coursesData = [
             id: 2,
             title: "Regeneración de válvulas cardíacas",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Técnicas regenerativas valvulares",
             completed: false
           }
@@ -978,7 +978,7 @@ export const coursesData = [
             id: 1,
             title: "Mecanismos de acción del ozono",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Cómo actúa el ozono en el organismo",
             completed: false
           },
@@ -986,7 +986,7 @@ export const coursesData = [
             id: 2,
             title: "Protocolos de aplicación",
             duration: "18:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Técnicas de administración segura",
             completed: false
           }
@@ -1042,7 +1042,7 @@ export const coursesData = [
             id: 2,
             title: "Regeneración de defectos óseos",
             duration: "23:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Técnicas para grandes defectos",
             completed: false
           }
@@ -1090,7 +1090,7 @@ export const coursesData = [
             id: 1,
             title: "Tratamiento de cicatrices y quemaduras",
             duration: "24:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Protocolos regenerativos",
             completed: false
           },
@@ -1098,7 +1098,7 @@ export const coursesData = [
             id: 2,
             title: "Alopecia y regeneración capilar",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Técnicas con células madre",
             completed: false
           }
@@ -1154,7 +1154,7 @@ export const coursesData = [
             id: 2,
             title: "Terapias regenerativas sistémicas",
             duration: "26:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Protocolos antiaging integrales",
             completed: false
           }
@@ -1202,7 +1202,7 @@ export const coursesData = [
             id: 1,
             title: "PRP en atrofia vaginal",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/jF2Ry5w5RjE",
             description: "Protocolos de aplicación",
             completed: false
           },
@@ -1210,7 +1210,7 @@ export const coursesData = [
             id: 2,
             title: "Regeneración del suelo pélvico",
             duration: "22:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/0ZcSCx0j5-M",
             description: "Técnicas para incontinencia",
             completed: false
           }
@@ -1266,7 +1266,7 @@ export const coursesData = [
             id: 2,
             title: "Regeneración corneal",
             duration: "20:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            videoUrl: "https://www.youtube.com/embed/evH0I7Coc54",
             description: "Técnicas para córnea",
             completed: false
           }
