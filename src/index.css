@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,11 +11,17 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8fafc;
   min-height: 100vh;
+  transition: background-color 0.3s ease;
+  letter-spacing: 0.01em;
+}
+
+.dark body {
+  background-color: #111827;
 }
 
 #root {
@@ -42,6 +48,19 @@ body {
   background: #94a3b8;
 }
 
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
 /* Glass effect utility */
 .glass {
   background: rgba(255, 255, 255, 0.8);
@@ -51,10 +70,21 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #4A90A4 0%, #2D5F6E 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Typography utilities - Estilo Clínica CAMSA */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p, span, div, a, button, input, textarea, select {
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Card hover effect */

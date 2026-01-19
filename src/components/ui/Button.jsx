@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const variants = {
-  primary: 'bg-maily text-white hover:bg-maily-dark',
-  secondary: 'bg-white text-maily border-2 border-maily hover:bg-maily-light',
-  accent: 'bg-maily-accent text-white hover:bg-orange-600',
-  ghost: 'bg-transparent text-maily hover:bg-maily-light',
+  primary: 'bg-logevity text-white hover:bg-logevity-dark',
+  secondary: 'bg-white text-logevity border-2 border-logevity hover:bg-logevity-light',
+  accent: 'bg-logevity-accent text-white hover:bg-yellow-600',
+  ghost: 'bg-transparent text-logevity hover:bg-logevity-light',
   danger: 'bg-red-500 text-white hover:bg-red-600'
 };
 

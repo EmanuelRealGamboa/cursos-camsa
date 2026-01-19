@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -19,15 +20,26 @@ export default {
           800: '#075985',
           900: '#0c4a6e',
         },
-        maily: {
-          light: '#E8F4F8',
-          DEFAULT: '#4A90A4',
-          dark: '#2D5F6E',
-          accent: '#FF7B54',
+        logevity: {
+          light: '#FFF8E1',
+          DEFAULT: '#D4AF37',
+          dark: '#B8860B',
+          accent: '#F5C842',
+          intense: '#FFD700',
+        },
+        camsa: {
+          gold: '#D4AF37',
+          goldLight: '#F5C842',
+          goldDark: '#B8860B',
+          navy: '#1a365d',
+          navyLight: '#2d4a6b',
+          navyDark: '#0f1f3d',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Open Sans', 'system-ui', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

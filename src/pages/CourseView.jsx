@@ -43,7 +43,7 @@ const CourseView = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Curso no encontrado</h2>
+          <h2 className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">Curso no encontrado</h2>
           <Button onClick={() => navigate('/dashboard')}>Volver al inicio</Button>
         </div>
       </div>
@@ -93,7 +93,7 @@ const CourseView = () => {
   return (
     <div className="min-h-screen pb-12">
       {/* Header del curso */}
-      <div className="bg-gradient-to-br from-maily via-maily to-maily-dark text-white">
+      <div className="bg-gradient-to-br from-logevity via-logevity to-logevity-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <button
             onClick={() => navigate(-1)}
@@ -112,7 +112,7 @@ const CourseView = () => {
                 <Badge variant="accent" className="mb-4">
                   {course.level}
                 </Badge>
-                <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
                   {course.title}
                 </h1>
                 <p className="text-white/80 text-lg mb-6">
@@ -217,7 +217,7 @@ const CourseView = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Lista de módulos */}
           <div className="lg:col-span-2 space-y-4">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-heading font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Contenido del curso
             </h2>
 
@@ -252,7 +252,7 @@ const CourseView = () => {
                           ${isComplete
                             ? 'bg-green-100 text-green-600'
                             : isUnlocked
-                              ? 'bg-maily-light text-maily'
+                              ? 'bg-logevity-light text-logevity'
                               : 'bg-gray-100 text-gray-400'
                           }
                         `}>
@@ -265,10 +265,10 @@ const CourseView = () => {
                           )}
                         </div>
                         <div className="text-left">
-                          <h3 className="font-semibold text-gray-900">
+                          <h3 className="font-semibold text-gray-900 dark:text-white">
                             {module.title}
                           </h3>
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-500 dark:text-gray-300">
                             {completedLessons} de {module.lessons.length} lecciones
                             {hasCert && (
                               <span className="ml-2 text-yellow-600">
@@ -299,7 +299,7 @@ const CourseView = () => {
                       <div className="px-4 pb-2">
                         <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                           <motion.div
-                            className="h-full bg-maily rounded-full"
+                            className="h-full bg-logevity rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${(completedLessons / module.lessons.length) * 100}%` }}
                             transition={{ duration: 0.5 }}
@@ -341,7 +341,7 @@ const CourseView = () => {
                                     )}
                                   </div>
                                   <div className="flex-1 text-left">
-                                    <p className={`font-medium ${isLessonCompleted ? 'text-gray-500' : 'text-gray-900'}`}>
+                                    <p className={`font-medium ${isLessonCompleted ? 'text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'}`}>
                                       {lesson.title}
                                     </p>
                                   </div>
@@ -355,16 +355,16 @@ const CourseView = () => {
                             {/* Quiz del módulo */}
                             <button
                               onClick={() => navigate(`/course/${course.id}/quiz/${module.id}`)}
-                              className="w-full p-4 flex items-center gap-4 bg-maily-light/50 hover:bg-maily-light transition-colors"
+                              className="w-full p-4 flex items-center gap-4 bg-logevity-light/50 hover:bg-logevity-light transition-colors"
                             >
-                              <div className="w-8 h-8 rounded-full bg-maily text-white flex items-center justify-center flex-shrink-0">
+                              <div className="w-8 h-8 rounded-full bg-logevity text-white flex items-center justify-center flex-shrink-0">
                                 <FileText className="w-4 h-4" />
                               </div>
                               <div className="flex-1 text-left">
-                                <p className="font-medium text-maily">
+                                <p className="font-medium text-logevity">
                                   Quiz: {module.title}
                                 </p>
-                                <p className="text-sm text-maily/70">
+                                <p className="text-sm text-logevity/70">
                                   {module.quiz.questions.length} preguntas • Puntaje mínimo: {module.quiz.passingScore}%
                                 </p>
                               </div>
@@ -388,7 +388,7 @@ const CourseView = () => {
           <div className="hidden lg:block">
             <div className="sticky top-24">
               <Card>
-                <h3 className="font-semibold text-gray-900 mb-6">Tu progreso</h3>
+                <h3 className="font-heading font-semibold text-gray-900 dark:text-gray-100 mb-6">Tu progreso</h3>
 
                 {/* Timeline vertical */}
                 <div className="relative">
@@ -397,7 +397,7 @@ const CourseView = () => {
 
                   {/* Línea de progreso */}
                   <motion.div
-                    className="absolute left-4 top-4 w-0.5 bg-maily"
+                    className="absolute left-4 top-4 w-0.5 bg-logevity"
                     initial={{ height: 0 }}
                     animate={{
                       height: `${(courseProgress?.completedModules || 0) / course.modules.length * 100}%`
@@ -420,9 +420,9 @@ const CourseView = () => {
                                 w-8 h-8 rounded-full flex items-center justify-center
                                 transition-all duration-300
                                 ${isComplete
-                                  ? 'bg-maily text-white shadow-lg shadow-maily/30'
+                                  ? 'bg-logevity text-white shadow-lg shadow-logevity/30'
                                   : isCurrent
-                                    ? 'bg-white border-2 border-maily text-maily'
+                                    ? 'bg-white border-2 border-logevity text-logevity'
                                     : 'bg-white border-2 border-gray-200 text-gray-400'
                                 }
                               `}
@@ -438,7 +438,7 @@ const CourseView = () => {
                               )}
                             </motion.div>
                             {isCurrent && (
-                              <div className="absolute inset-0 rounded-full bg-maily/20 animate-ping" />
+                              <div className="absolute inset-0 rounded-full bg-logevity/20 animate-ping" />
                             )}
                           </div>
 
@@ -447,9 +447,9 @@ const CourseView = () => {
                             <h4 className={`
                               text-sm font-medium
                               ${isComplete
-                                ? 'text-maily'
+                                ? 'text-logevity'
                                 : isCurrent
-                                  ? 'text-gray-900'
+                                  ? 'text-gray-900 dark:text-white'
                                   : 'text-gray-400'
                               }
                             `}>
@@ -475,7 +475,7 @@ const CourseView = () => {
                 <div className="mt-8 pt-6 border-t border-gray-100">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <p className="text-2xl font-bold text-maily">
+                      <p className="text-2xl font-bold text-logevity">
                         {courseProgress?.totalLessonsCompleted || 0}
                       </p>
                       <p className="text-xs text-gray-500">Lecciones vistas</p>

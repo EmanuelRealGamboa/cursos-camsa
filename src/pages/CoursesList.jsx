@@ -18,9 +18,11 @@ const CoursesList = () => {
   const { getCourseProgress } = useProgress();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
 
   const levels = ['all', 'Principiante', 'Intermedio', 'Avanzado'];
+  const categories = ['all', ...new Set(coursesData.map(c => c.category))];
 
   const filteredCourses = useMemo(() => {
     let filtered = [...coursesData];
@@ -36,6 +38,11 @@ const CoursesList = () => {
     // Filtrar por nivel
     if (selectedLevel !== 'all') {
       filtered = filtered.filter(course => course.level === selectedLevel);
+    }
+
+    // Filtrar por categoría
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(course => course.category === selectedCategory);
     }
 
     // Ordenar
@@ -54,10 +61,10 @@ const CoursesList = () => {
     }
 
     return filtered;
-  }, [searchQuery, selectedLevel, sortBy]);
+  }, [searchQuery, selectedLevel, selectedCategory, sortBy]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -65,10 +72,10 @@ const CoursesList = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">
             Catálogo de Cursos
           </h1>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             Explora todos nuestros cursos disponibles
           </p>
         </motion.div>
@@ -78,7 +85,7 @@ const CoursesList = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mb-8"
+          className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 mb-8"
         >
           <div className="flex flex-col md:flex-row gap-4">
             {/* Búsqueda */}
@@ -89,17 +96,32 @@ const CoursesList = () => {
                 placeholder="Buscar cursos..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-100 rounded-xl border-2 border-transparent focus:border-maily focus:bg-white outline-none transition-all"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-logevity focus:bg-white dark:focus:bg-gray-700 outline-none transition-all text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
               />
+            </div>
+
+            {/* Filtro por categoría */}
+            <div className="relative">
+              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="pl-10 pr-10 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-logevity focus:bg-white dark:focus:bg-gray-700 outline-none appearance-none cursor-pointer text-gray-900 dark:text-gray-100"
+              >
+                <option value="all">Todas las categorías</option>
+                {categories.slice(1).map(category => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
             </div>
 
             {/* Filtro por nivel */}
             <div className="relative">
-              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="pl-10 pr-10 py-2.5 bg-gray-100 rounded-xl border-2 border-transparent focus:border-maily focus:bg-white outline-none appearance-none cursor-pointer"
+                className="pl-4 pr-10 py-2.5 bg-gray-100 dark:bg-gray-800 rounded-xl border-2 border-transparent focus:border-logevity focus:bg-white dark:focus:bg-gray-700 outline-none appearance-none cursor-pointer text-gray-900 dark:text-gray-100"
               >
                 <option value="all">Todos los niveles</option>
                 {levels.slice(1).map(level => (
@@ -114,7 +136,7 @@ const CoursesList = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2.5 bg-gray-100 rounded-xl border-2 border-transparent focus:border-maily focus:bg-white outline-none appearance-none cursor-pointer pr-10"
+                className="px-4 py-2.5 bg-gray-100 rounded-xl border-2 border-transparent focus:border-logevity focus:bg-white outline-none appearance-none cursor-pointer pr-10"
               >
                 <option value="popular">Más populares</option>
                 <option value="rating">Mejor valorados</option>
@@ -127,7 +149,7 @@ const CoursesList = () => {
 
         {/* Resultados */}
         <div className="mb-4">
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             {filteredCourses.length} curso{filteredCourses.length !== 1 ? 's' : ''} encontrado{filteredCourses.length !== 1 ? 's' : ''}
           </p>
         </div>
@@ -156,11 +178,14 @@ const CoursesList = () => {
                           src={course.thumbnail}
                           alt={course.title}
                           className="w-full h-44 object-cover"
+                          onError={(e) => {
+                            e.target.src = `https://via.placeholder.com/400x250/D4AF37/FFFFFF?text=${encodeURIComponent(course.title.substring(0, 30))}`;
+                          }}
                         />
                         {progress.percentage > 0 && (
                           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
                             <div
-                              className="h-full bg-maily transition-all"
+                              className="h-full bg-logevity transition-all"
                               style={{ width: `${progress.percentage}%` }}
                             />
                           </div>
@@ -189,26 +214,31 @@ const CoursesList = () => {
                       </div>
 
                       <div className="p-5">
-                        <h3 className="font-semibold text-gray-900 text-lg mb-2 line-clamp-1">
+                        <div className="mb-2">
+                          <Badge variant="primary" size="sm" className="mb-2">
+                            {course.category}
+                          </Badge>
+                        </div>
+                        <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg mb-2 line-clamp-1">
                           {course.title}
                         </h3>
-                        <p className="text-gray-500 text-sm line-clamp-2 mb-4">
+                        <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 mb-4">
                           {course.description}
                         </p>
 
                         {/* Instructor */}
                         <div className="flex items-center gap-2 mb-4">
                           <img
-                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(course.instructor)}&background=4A90A4&color=fff&size=32`}
+                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(course.instructor)}&background=FFD700&color=000&size=32`}
                             alt={course.instructor}
                             className="w-6 h-6 rounded-full"
                           />
-                          <span className="text-sm text-gray-600">{course.instructor}</span>
+                          <span className="text-sm text-gray-600 dark:text-gray-300">{course.instructor}</span>
                         </div>
 
                         {/* Stats */}
                         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                          <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                             <span className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
                               {course.duration}
@@ -246,10 +276,10 @@ const CoursesList = () => {
             <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
               <Search className="w-8 h-8 text-gray-400" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
               No se encontraron cursos
             </h3>
-            <p className="text-gray-500">
+            <p className="text-gray-500 dark:text-gray-300">
               Intenta ajustar los filtros o la búsqueda
             </p>
           </motion.div>

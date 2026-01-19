@@ -1,91 +1,92 @@
-// Datos de ejemplo para los cursos de Maily Te Cuida
+// Datos de cursos de medicina regenerativa para LOGEVITY
 export const coursesData = [
   {
     id: 1,
-    title: "Fundamentos de Maily",
-    description: "Aprende desde cero a utilizar todas las funcionalidades básicas del software Maily. Este curso te guiará paso a paso.",
-    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
-    instructor: "María García",
-    duration: "4 horas",
-    totalLessons: 12,
+    title: "Fundamentos de Medicina Regenerativa",
+    description: "Introducción completa a los principios básicos de la medicina regenerativa, células madre y terapias avanzadas.",
+    category: "Fundamentos",
+    thumbnail: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. María García",
+    duration: "8 horas",
+    totalLessons: 15,
     level: "Principiante",
-    rating: 4.8,
-    students: 1250,
+    rating: 4.9,
+    students: 2150,
     modules: [
       {
         id: 1,
-        title: "Módulo 1: Introducción y Configuración",
-        description: "Conoce la interfaz y configura tu entorno de trabajo",
+        title: "Módulo 1: Introducción a la Medicina Regenerativa",
+        description: "Conceptos básicos y fundamentos científicos",
         lessons: [
           {
             id: 1,
-            title: "Bienvenida al curso",
-            duration: "5:30",
+            title: "¿Qué es la medicina regenerativa?",
+            duration: "12:30",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Introducción al curso y objetivos de aprendizaje",
+            description: "Definición, historia y alcance de la medicina regenerativa",
             completed: false
           },
           {
             id: 2,
-            title: "Instalación del software",
-            duration: "12:45",
+            title: "Células madre: tipos y características",
+            duration: "18:45",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Guía paso a paso para instalar Maily en tu computadora",
+            description: "Clasificación de células madre y sus propiedades únicas",
             completed: false
           },
           {
             id: 3,
-            title: "Conociendo la interfaz",
-            duration: "18:20",
+            title: "Mecanismos de regeneración celular",
+            duration: "15:20",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Tour completo por la interfaz principal del software",
+            description: "Cómo funcionan los procesos de regeneración en el organismo",
             completed: false
           },
           {
             id: 4,
-            title: "Configuración inicial",
-            duration: "10:15",
+            title: "Aplicaciones clínicas actuales",
+            duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Personaliza tu entorno de trabajo según tus necesidades",
+            description: "Casos de uso reales en la práctica médica",
             completed: false
           }
         ],
         quiz: {
           id: 1,
-          title: "Quiz: Introducción y Configuración",
+          title: "Quiz: Introducción a la Medicina Regenerativa",
           questions: [
             {
               id: 1,
-              question: "¿Cuál es el primer paso al abrir Maily por primera vez?",
+              question: "¿Cuál es la principal característica de las células madre?",
               options: [
-                "Crear una cuenta de usuario",
-                "Configurar las preferencias",
-                "Importar datos existentes",
-                "Actualizar el software"
+                "Su capacidad de diferenciación",
+                "Su tamaño microscópico",
+                "Su resistencia a enfermedades",
+                "Su velocidad de división"
               ],
               correctAnswer: 0
             },
             {
               id: 2,
-              question: "¿Dónde se encuentran las opciones de configuración principal?",
+              question: "¿Qué tipo de células madre tiene mayor potencial terapéutico?",
               options: [
-                "En el menú Archivo",
-                "En el menú Configuración",
-                "En la barra de herramientas",
-                "En el panel lateral"
+                "Células madre adultas",
+                "Células madre embrionarias",
+                "Células madre pluripotentes inducidas",
+                "Todas tienen el mismo potencial"
               ],
-              correctAnswer: 1
+              correctAnswer: 2
             },
             {
               id: 3,
-              question: "¿Qué formato de archivo utiliza Maily para los proyectos?",
+              question: "¿En qué área la medicina regenerativa ha mostrado más avances?",
               options: [
-                ".mly",
-                ".doc",
-                ".pdf",
-                ".xlsx"
+                "Cardiología",
+                "Ortopedia y traumatología",
+                "Dermatología",
+                "Neurología"
               ],
-              correctAnswer: 0
+              correctAnswer: 1
             }
           ],
           passingScore: 70
@@ -93,78 +94,78 @@ export const coursesData = [
       },
       {
         id: 2,
-        title: "Módulo 2: Funciones Básicas",
-        description: "Domina las operaciones fundamentales del día a día",
+        title: "Módulo 2: Terapias con Células Madre",
+        description: "Aplicaciones prácticas y técnicas de administración",
         lessons: [
           {
             id: 5,
-            title: "Creando tu primer proyecto",
-            duration: "15:00",
+            title: "Preparación de células madre para terapia",
+            duration: "22:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Aprende a crear y gestionar proyectos desde cero",
+            description: "Procesos de cultivo, expansión y preparación",
             completed: false
           },
           {
             id: 6,
-            title: "Importación de datos",
-            duration: "20:30",
+            title: "Vías de administración",
+            duration: "16:30",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Cómo importar información de diferentes fuentes",
+            description: "Métodos de aplicación: intravenosa, local, intralesional",
             completed: false
           },
           {
             id: 7,
-            title: "Navegación y búsqueda",
-            duration: "12:00",
+            title: "Dosificación y protocolos",
+            duration: "19:15",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Técnicas para encontrar rápidamente lo que necesitas",
+            description: "Cálculo de dosis y esquemas de tratamiento",
             completed: false
           },
           {
             id: 8,
-            title: "Edición básica de registros",
-            duration: "18:45",
+            title: "Monitoreo y seguimiento post-tratamiento",
+            duration: "14:45",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Modifica y actualiza información de manera eficiente",
+            description: "Evaluación de resultados y control de efectos",
             completed: false
           }
         ],
         quiz: {
           id: 2,
-          title: "Quiz: Funciones Básicas",
+          title: "Quiz: Terapias con Células Madre",
           questions: [
             {
               id: 1,
-              question: "¿Cuántos tipos de proyectos se pueden crear en Maily?",
+              question: "¿Cuál es la vía de administración más común para células madre?",
               options: [
-                "2 tipos",
-                "3 tipos",
-                "4 tipos",
-                "5 tipos"
+                "Intravenosa",
+                "Intramuscular",
+                "Intralesional",
+                "Subcutánea"
               ],
               correctAnswer: 2
             },
             {
               id: 2,
-              question: "¿Qué atajo de teclado abre la búsqueda rápida?",
+              question: "¿Qué factor es más importante al determinar la dosis?",
               options: [
-                "Ctrl + F",
-                "Ctrl + B",
-                "Ctrl + S",
-                "Ctrl + N"
+                "Edad del paciente",
+                "Tipo de lesión",
+                "Peso corporal",
+                "Todas las anteriores"
               ],
-              correctAnswer: 0
+              correctAnswer: 3
             },
             {
               id: 3,
-              question: "¿Desde qué formatos se pueden importar datos?",
+              question: "¿Cuánto tiempo típicamente se requiere para ver resultados iniciales?",
               options: [
-                "Solo Excel",
-                "Excel y CSV",
-                "Excel, CSV y JSON",
-                "Todos los formatos mencionados más XML"
+                "1-2 semanas",
+                "4-6 semanas",
+                "3-4 meses",
+                "6-12 meses"
               ],
-              correctAnswer: 3
+              correctAnswer: 1
             }
           ],
           passingScore: 70
@@ -172,76 +173,76 @@ export const coursesData = [
       },
       {
         id: 3,
-        title: "Módulo 3: Reportes y Exportación",
-        description: "Genera informes profesionales y comparte tu trabajo",
+        title: "Módulo 3: Medicina Regenerativa en Ortopedia",
+        description: "Aplicaciones específicas en lesiones musculoesqueléticas",
         lessons: [
           {
             id: 9,
-            title: "Generación de reportes básicos",
-            duration: "16:00",
+            title: "Tratamiento de lesiones de cartílago",
+            duration: "25:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Crea reportes estandarizados de forma rápida",
+            description: "Técnicas para regeneración de cartílago articular",
             completed: false
           },
           {
             id: 10,
-            title: "Personalización de reportes",
-            duration: "22:15",
+            title: "Terapia para tendinopatías",
+            duration: "21:30",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Adapta los reportes a tus necesidades específicas",
+            description: "Aplicación en tendones y ligamentos",
             completed: false
           },
           {
             id: 11,
-            title: "Exportación en diferentes formatos",
-            duration: "14:30",
+            title: "Fracturas y consolidación ósea",
+            duration: "18:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "PDF, Excel, y otros formatos de exportación",
+            description: "Aceleración de la cicatrización ósea",
             completed: false
           },
           {
             id: 12,
-            title: "Compartir y colaborar",
-            duration: "11:00",
+            title: "Artrosis y degeneración articular",
+            duration: "23:15",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Trabaja en equipo y comparte tu trabajo fácilmente",
+            description: "Enfoques regenerativos para artrosis",
             completed: false
           }
         ],
         quiz: {
           id: 3,
-          title: "Quiz: Reportes y Exportación",
+          title: "Quiz: Medicina Regenerativa en Ortopedia",
           questions: [
             {
               id: 1,
-              question: "¿Cuál es el formato recomendado para compartir reportes oficiales?",
+              question: "¿Qué tipo de células son más efectivas para regeneración de cartílago?",
               options: [
-                "Excel",
-                "PDF",
-                "Word",
-                "HTML"
+                "Células madre mesenquimales",
+                "Condrocitos",
+                "Osteoblastos",
+                "Fibroblastos"
               ],
-              correctAnswer: 1
+              correctAnswer: 0
             },
             {
               id: 2,
-              question: "¿Se pueden programar reportes automáticos?",
+              question: "¿Cuál es la tasa de éxito típica en regeneración de cartílago?",
               options: [
-                "No, solo manuales",
-                "Sí, diariamente",
-                "Sí, con múltiples frecuencias",
-                "Solo en la versión premium"
+                "40-50%",
+                "60-70%",
+                "75-85%",
+                "90-95%"
               ],
               correctAnswer: 2
             },
             {
               id: 3,
-              question: "¿Cuántos usuarios pueden colaborar simultáneamente en un proyecto?",
+              question: "¿En qué tipo de lesión ortopédica la medicina regenerativa muestra mejores resultados?",
               options: [
-                "Hasta 5",
-                "Hasta 10",
-                "Hasta 25",
-                "Sin límite"
+                "Fracturas complejas",
+                "Lesiones de cartílago",
+                "Tendinopatías crónicas",
+                "Todas las anteriores"
               ],
               correctAnswer: 3
             }
@@ -253,98 +254,99 @@ export const coursesData = [
   },
   {
     id: 2,
-    title: "Maily Avanzado",
-    description: "Lleva tus habilidades al siguiente nivel con funciones avanzadas, automatizaciones y trucos de productividad.",
-    thumbnail: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop",
-    instructor: "Carlos Rodríguez",
-    duration: "6 horas",
-    totalLessons: 15,
-    level: "Avanzado",
-    rating: 4.9,
-    students: 890,
+    title: "Plasma Rico en Plaquetas (PRP) Avanzado",
+    description: "Dominio completo de las técnicas de PRP, preparación, aplicación y protocolos avanzados para diferentes patologías.",
+    category: "Técnicas Avanzadas",
+    thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Carlos Rodríguez",
+    duration: "10 horas",
+    totalLessons: 18,
+    level: "Intermedio",
+    rating: 4.8,
+    students: 1680,
     modules: [
       {
         id: 1,
-        title: "Módulo 1: Automatizaciones",
-        description: "Crea flujos de trabajo automáticos",
+        title: "Módulo 1: Fundamentos del PRP",
+        description: "Bases científicas y preparación del PRP",
         lessons: [
           {
             id: 1,
-            title: "Introducción a las automatizaciones",
-            duration: "10:00",
+            title: "Biología de las plaquetas y factores de crecimiento",
+            duration: "15:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Qué son y cómo pueden ayudarte",
+            description: "Composición y función de los factores de crecimiento",
             completed: false
           },
           {
             id: 2,
-            title: "Creando tu primera automatización",
-            duration: "25:00",
+            title: "Sistemas de centrifugación",
+            duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Paso a paso para crear flujos automáticos",
+            description: "Equipos y técnicas de centrifugación",
             completed: false
           },
           {
             id: 3,
-            title: "Triggers y condiciones",
-            duration: "20:00",
+            title: "Preparación de PRP de alta calidad",
+            duration: "25:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Configura cuándo y cómo se ejecutan",
+            description: "Protocolos paso a paso para obtener PRP óptimo",
             completed: false
           },
           {
             id: 4,
-            title: "Casos de uso prácticos",
-            duration: "30:00",
+            title: "Control de calidad y validación",
+            duration: "18:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Ejemplos reales de automatización",
+            description: "Cómo verificar la calidad del PRP preparado",
             completed: false
           },
           {
             id: 5,
-            title: "Solución de problemas comunes",
-            duration: "15:00",
+            title: "Almacenamiento y conservación",
+            duration: "12:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Debugging y optimización",
+            description: "Mejores prácticas para preservar el PRP",
             completed: false
           }
         ],
         quiz: {
           id: 1,
-          title: "Quiz: Automatizaciones",
+          title: "Quiz: Fundamentos del PRP",
           questions: [
             {
               id: 1,
-              question: "¿Qué es un trigger en automatización?",
+              question: "¿Cuál es el factor de crecimiento más importante en PRP?",
               options: [
-                "Una acción final",
-                "El evento que inicia la automatización",
-                "Un tipo de reporte",
-                "Una configuración de usuario"
-              ],
-              correctAnswer: 1
-            },
-            {
-              id: 2,
-              question: "¿Cuántas condiciones puede tener una automatización?",
-              options: [
-                "Máximo 3",
-                "Máximo 5",
-                "Máximo 10",
-                "Sin límite"
+                "PDGF",
+                "VEGF",
+                "TGF-β",
+                "Todos son igualmente importantes"
               ],
               correctAnswer: 3
             },
             {
-              id: 3,
-              question: "¿Cuál es la mejor práctica al crear automatizaciones?",
+              id: 2,
+              question: "¿Cuál es la concentración óptima de plaquetas en PRP?",
               options: [
-                "Crear una grande que haga todo",
-                "Dividir en pequeñas automatizaciones específicas",
-                "No usar condiciones",
-                "Ejecutar siempre manualmente primero"
+                "2-3x la concentración basal",
+                "4-5x la concentración basal",
+                "6-8x la concentración basal",
+                "10x o más la concentración basal"
               ],
-              correctAnswer: 1
+              correctAnswer: 2
+            },
+            {
+              id: 3,
+              question: "¿Cuánto tiempo puede almacenarse el PRP activado?",
+              options: [
+                "Inmediatamente",
+                "Hasta 2 horas",
+                "Hasta 6 horas",
+                "Hasta 24 horas"
+              ],
+              correctAnswer: 0
             }
           ],
           passingScore: 70
@@ -352,84 +354,84 @@ export const coursesData = [
       },
       {
         id: 2,
-        title: "Módulo 2: Integraciones",
-        description: "Conecta Maily con otras herramientas",
+        title: "Módulo 2: Aplicaciones Clínicas del PRP",
+        description: "Protocolos específicos por especialidad médica",
         lessons: [
           {
             id: 6,
-            title: "Visión general de integraciones",
-            duration: "12:00",
+            title: "PRP en dermatología estética",
+            duration: "22:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Herramientas compatibles con Maily",
+            description: "Aplicaciones faciales y corporales",
             completed: false
           },
           {
             id: 7,
-            title: "Integración con Excel",
-            duration: "18:00",
+            title: "PRP en medicina deportiva",
+            duration: "28:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Sincronización bidireccional",
+            description: "Lesiones deportivas y recuperación",
             completed: false
           },
           {
             id: 8,
-            title: "Integración con Google Workspace",
-            duration: "20:00",
+            title: "PRP en alopecia y regeneración capilar",
+            duration: "24:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Calendar, Drive y más",
+            description: "Tratamiento de pérdida de cabello",
             completed: false
           },
           {
             id: 9,
-            title: "APIs y webhooks",
-            duration: "25:00",
+            title: "PRP en ginecología",
+            duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Para desarrolladores y usuarios avanzados",
+            description: "Aplicaciones en salud íntima femenina",
             completed: false
           },
           {
             id: 10,
-            title: "Casos de integración empresarial",
-            duration: "22:00",
+            title: "PRP en odontología",
+            duration: "19:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Ejemplos de grandes implementaciones",
+            description: "Regeneración ósea y periodontal",
             completed: false
           }
         ],
         quiz: {
           id: 2,
-          title: "Quiz: Integraciones",
+          title: "Quiz: Aplicaciones Clínicas del PRP",
           questions: [
             {
               id: 1,
-              question: "¿Qué es un webhook?",
+              question: "¿Cuál es la frecuencia típica de sesiones de PRP facial?",
               options: [
-                "Un tipo de reporte",
-                "Una notificación automática a sistemas externos",
-                "Un formato de archivo",
-                "Una herramienta de diseño"
-              ],
-              correctAnswer: 1
-            },
-            {
-              id: 2,
-              question: "¿Con qué servicio de Google NO se integra Maily?",
-              options: [
-                "Google Calendar",
-                "Google Drive",
-                "Google Photos",
-                "Google Sheets"
+                "Semanal",
+                "Mensual",
+                "Cada 3-4 semanas",
+                "Anual"
               ],
               correctAnswer: 2
             },
             {
-              id: 3,
-              question: "¿Qué protocolo usa la API de Maily?",
+              id: 2,
+              question: "¿En qué tipo de lesión deportiva el PRP muestra mejores resultados?",
               options: [
-                "SOAP",
-                "GraphQL",
-                "REST",
-                "gRPC"
+                "Lesiones agudas",
+                "Lesiones crónicas",
+                "Ambas",
+                "Ninguna"
+              ],
+              correctAnswer: 1
+            },
+            {
+              id: 3,
+              question: "¿Cuántas sesiones típicamente se requieren para alopecia?",
+              options: [
+                "1-2 sesiones",
+                "3-4 sesiones",
+                "6-8 sesiones",
+                "10-12 sesiones"
               ],
               correctAnswer: 2
             }
@@ -439,84 +441,336 @@ export const coursesData = [
       },
       {
         id: 3,
-        title: "Módulo 3: Análisis Avanzado",
-        description: "Dashboards y métricas personalizadas",
+        title: "Módulo 3: Técnicas Avanzadas y Combinaciones",
+        description: "Protocolos combinados y técnicas innovadoras",
         lessons: [
           {
             id: 11,
-            title: "Creación de dashboards",
-            duration: "28:00",
+            title: "PRP combinado con células madre",
+            duration: "26:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Visualiza tus datos de forma efectiva",
+            description: "Sinergia entre PRP y células madre",
             completed: false
           },
           {
             id: 12,
-            title: "KPIs y métricas personalizadas",
-            duration: "22:00",
+            title: "PRP con ácido hialurónico",
+            duration: "18:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Define lo que realmente importa medir",
+            description: "Combinaciones en medicina estética",
             completed: false
           },
           {
             id: 13,
-            title: "Filtros y segmentación avanzada",
-            duration: "18:00",
+            title: "PRP microneedling",
+            duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Analiza datos específicos",
+            description: "Técnica de aplicación con microagujas",
             completed: false
           },
           {
             id: 14,
-            title: "Exportación de análisis",
-            duration: "15:00",
+            title: "PRP en cirugía",
+            duration: "22:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Comparte insights con tu equipo",
+            description: "Uso intraoperatorio de PRP",
             completed: false
           },
           {
             id: 15,
-            title: "Mejores prácticas de análisis",
-            duration: "20:00",
+            title: "Casos clínicos complejos",
+            duration: "30:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Consejos de expertos",
+            description: "Análisis de casos reales y resultados",
             completed: false
           }
         ],
         quiz: {
           id: 3,
-          title: "Quiz: Análisis Avanzado",
+          title: "Quiz: Técnicas Avanzadas",
           questions: [
             {
               id: 1,
-              question: "¿Qué es un KPI?",
+              question: "¿Por qué se combina PRP con células madre?",
               options: [
-                "Key Personal Information",
-                "Key Performance Indicator",
-                "Knowledge Process Integration",
-                "Key Process Index"
+                "Para reducir costos",
+                "Para potenciar efectos regenerativos",
+                "Para simplificar el procedimiento",
+                "No se combinan"
               ],
               correctAnswer: 1
             },
             {
               id: 2,
-              question: "¿Cuántos widgets puede tener un dashboard?",
+              question: "¿Cuál es la profundidad recomendada para microneedling con PRP?",
               options: [
-                "Máximo 6",
-                "Máximo 12",
-                "Máximo 20",
-                "Sin límite"
+                "0.5-1mm",
+                "1-2mm",
+                "2-3mm",
+                "3-4mm"
+              ],
+              correctAnswer: 1
+            },
+            {
+              id: 3,
+              question: "¿En qué tipo de cirugía el PRP muestra más beneficios?",
+              options: [
+                "Cirugía plástica",
+                "Cirugía ortopédica",
+                "Cirugía dental",
+                "Todas las anteriores"
+              ],
+              correctAnswer: 3
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Medicina Regenerativa en Estética y Antiaging",
+    description: "Aplicaciones estéticas avanzadas, rejuvenecimiento facial, regeneración cutánea y técnicas anti-envejecimiento.",
+    category: "Estética",
+    thumbnail: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop&q=80",
+    instructor: "Dra. Ana Martínez",
+    duration: "12 horas",
+    totalLessons: 20,
+    level: "Avanzado",
+    rating: 4.9,
+    students: 2340,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Rejuvenecimiento Facial",
+        description: "Técnicas regenerativas para el rostro",
+        lessons: [
+          {
+            id: 1,
+            title: "Anatomía facial y envejecimiento",
+            duration: "20:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Comprensión del proceso de envejecimiento",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "PRP facial: técnica y protocolos",
+            duration: "25:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Aplicación de PRP en diferentes zonas faciales",
+            completed: false
+          },
+          {
+            id: 3,
+            title: "Células madre en estética facial",
+            duration: "28:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Uso de células madre para rejuvenecimiento",
+            completed: false
+          },
+          {
+            id: 4,
+            title: "Combinación con otros tratamientos",
+            duration: "22:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Sinergia con láser, hilos y otros procedimientos",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Rejuvenecimiento Facial",
+          questions: [
+            {
+              id: 1,
+              question: "¿Cuál es el principal mecanismo de acción del PRP facial?",
+              options: [
+                "Relleno inmediato",
+                "Estimulación de colágeno",
+                "Exfoliación",
+                "Despigmentación"
+              ],
+              correctAnswer: 1
+            },
+            {
+              id: 2,
+              question: "¿Cuánto tiempo típicamente se requieren para ver resultados en PRP facial?",
+              options: [
+                "Inmediato",
+                "2-4 semanas",
+                "3-4 meses",
+                "6-12 meses"
+              ],
+              correctAnswer: 2
+            },
+            {
+              id: 3,
+              question: "¿Cuál es la frecuencia recomendada de sesiones?",
+              options: [
+                "Semanal",
+                "Mensual",
+                "Cada 3-4 semanas",
+                "Anual"
+              ],
+              correctAnswer: 2
+            }
+          ],
+          passingScore: 70
+        }
+      },
+      {
+        id: 2,
+        title: "Módulo 2: Regeneración Corporal",
+        description: "Aplicaciones en cuerpo y extremidades",
+        lessons: [
+          {
+            id: 5,
+            title: "Tratamiento de estrías",
+            duration: "24:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos para atenuación de estrías",
+            completed: false
+          },
+          {
+            id: 6,
+            title: "Regeneración de cicatrices",
+            duration: "26:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Mejora de cicatrices quirúrgicas y traumáticas",
+            completed: false
+          },
+          {
+            id: 7,
+            title: "Rejuvenecimiento de manos y cuello",
+            duration: "20:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas específicas para estas áreas",
+            completed: false
+          },
+          {
+            id: 8,
+            title: "Tratamiento de flacidez",
+            duration: "22:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Aplicaciones para mejorar la firmeza cutánea",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 2,
+          title: "Quiz: Regeneración Corporal",
+          questions: [
+            {
+              id: 1,
+              question: "¿Qué tipo de estrías responde mejor al tratamiento?",
+              options: [
+                "Estrías rojas",
+                "Estrías blancas",
+                "Ambas igualmente",
+                "Ninguna responde"
+              ],
+              correctAnswer: 0
+            },
+            {
+              id: 2,
+              question: "¿Cuántas sesiones típicamente se requieren para cicatrices?",
+              options: [
+                "1-2 sesiones",
+                "3-5 sesiones",
+                "6-8 sesiones",
+                "10-12 sesiones"
+              ],
+              correctAnswer: 2
+            },
+            {
+              id: 3,
+              question: "¿Cuál es el mejor momento para tratar cicatrices quirúrgicas?",
+              options: [
+                "Inmediatamente después",
+                "2-4 semanas post-cirugía",
+                "3-6 meses después",
+                "Solo cicatrices antiguas"
+              ],
+              correctAnswer: 1
+            }
+          ],
+          passingScore: 70
+        }
+      },
+      {
+        id: 3,
+        title: "Módulo 3: Protocolos Antiaging Integrales",
+        description: "Enfoques holísticos de medicina regenerativa",
+        lessons: [
+          {
+            id: 9,
+            title: "Medicina antiaging sistémica",
+            duration: "28:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Enfoque integral del envejecimiento",
+            completed: false
+          },
+          {
+            id: 10,
+            title: "Terapias combinadas",
+            duration: "30:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos multimodales",
+            completed: false
+          },
+          {
+            id: 11,
+            title: "Nutrición y suplementación",
+            duration: "25:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Apoyo nutricional para regeneración",
+            completed: false
+          },
+          {
+            id: 12,
+            title: "Seguimiento y mantenimiento",
+            duration: "18:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos de seguimiento a largo plazo",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 3,
+          title: "Quiz: Protocolos Antiaging",
+          questions: [
+            {
+              id: 1,
+              question: "¿Cuál es el enfoque más efectivo en medicina antiaging?",
+              options: [
+                "Solo tratamientos tópicos",
+                "Solo tratamientos sistémicos",
+                "Enfoque integral",
+                "Solo cirugía"
+              ],
+              correctAnswer: 2
+            },
+            {
+              id: 2,
+              question: "¿Qué suplemento es más importante para regeneración?",
+              options: [
+                "Vitamina C",
+                "Colágeno",
+                "Ácido hialurónico",
+                "Todos son importantes"
               ],
               correctAnswer: 3
             },
             {
               id: 3,
-              question: "¿Cuál es la mejor práctica para dashboards?",
+              question: "¿Con qué frecuencia se recomienda mantenimiento?",
               options: [
-                "Incluir todos los datos posibles",
-                "Enfocarse en las métricas más relevantes",
-                "Usar solo gráficos de barras",
-                "Actualizar manualmente los datos"
+                "Mensual",
+                "Cada 3-6 meses",
+                "Anual",
+                "Solo una vez"
               ],
               correctAnswer: 1
             }
@@ -527,208 +781,508 @@ export const coursesData = [
     ]
   },
   {
-    id: 3,
-    title: "Maily para Equipos",
-    description: "Aprende a gestionar equipos de trabajo, permisos, roles y colaboración efectiva dentro de Maily.",
-    thumbnail: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop",
-    instructor: "Ana Martínez",
-    duration: "3 horas",
-    totalLessons: 9,
-    level: "Intermedio",
-    rating: 4.7,
-    students: 650,
+    id: 4,
+    title: "Terapia con Células Madre Mesenquimales",
+    description: "Aprende las técnicas avanzadas de obtención, cultivo y aplicación de células madre mesenquimales en diferentes patologías.",
+    category: "Técnicas Avanzadas",
+    thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Roberto Sánchez",
+    duration: "14 horas",
+    totalLessons: 22,
+    level: "Avanzado",
+    rating: 4.9,
+    students: 1890,
     modules: [
       {
         id: 1,
-        title: "Módulo 1: Gestión de Usuarios",
-        description: "Administra tu equipo eficientemente",
+        title: "Módulo 1: Biología de Células Madre Mesenquimales",
+        description: "Fundamentos biológicos y características",
         lessons: [
           {
             id: 1,
-            title: "Roles y permisos",
+            title: "Origen y características de células mesenquimales",
             duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Configura quién puede hacer qué",
+            description: "Fuentes de obtención y propiedades únicas",
             completed: false
           },
           {
             id: 2,
-            title: "Invitar miembros al equipo",
-            duration: "10:00",
+            title: "Marcadores celulares y caracterización",
+            duration: "25:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Proceso de onboarding de nuevos usuarios",
+            description: "Identificación y validación de células",
             completed: false
           },
           {
             id: 3,
-            title: "Grupos de trabajo",
-            duration: "15:00",
+            title: "Diferenciación y plasticidad",
+            duration: "22:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Organiza tu equipo en grupos",
+            description: "Capacidades de diferenciación celular",
             completed: false
           }
         ],
         quiz: {
           id: 1,
-          title: "Quiz: Gestión de Usuarios",
+          title: "Quiz: Biología de Células Mesenquimales",
           questions: [
             {
               id: 1,
-              question: "¿Cuántos roles predefinidos tiene Maily?",
-              options: ["3", "4", "5", "6"],
-              correctAnswer: 2
-            },
-            {
-              id: 2,
-              question: "¿Quién puede modificar los permisos de un rol?",
+              question: "¿Cuál es la principal fuente de células mesenquimales?",
               options: [
-                "Cualquier usuario",
-                "Solo administradores",
-                "Solo el propietario",
-                "Administradores y propietario"
+                "Médula ósea",
+                "Tejido adiposo",
+                "Cordón umbilical",
+                "Todas las anteriores"
               ],
               correctAnswer: 3
-            },
-            {
-              id: 3,
-              question: "¿Se pueden crear roles personalizados?",
-              options: [
-                "No",
-                "Sí, ilimitados",
-                "Sí, hasta 10",
-                "Solo en plan empresarial"
-              ],
-              correctAnswer: 1
             }
           ],
           passingScore: 70
         }
-      },
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Medicina Regenerativa en Neurología",
+    description: "Aplicaciones de medicina regenerativa en enfermedades neurológicas, lesiones medulares y trastornos neurodegenerativos.",
+    category: "Especialidades",
+    thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&h=500&fit=crop&q=80",
+    instructor: "Dra. Laura Fernández",
+    duration: "10 horas",
+    totalLessons: 16,
+    level: "Avanzado",
+    rating: 4.8,
+    students: 1450,
+    modules: [
       {
-        id: 2,
-        title: "Módulo 2: Colaboración en Tiempo Real",
-        description: "Trabaja simultáneamente con tu equipo",
+        id: 1,
+        title: "Módulo 1: Neuroregeneración y Plasticidad",
+        description: "Mecanismos de regeneración del sistema nervioso",
         lessons: [
           {
-            id: 4,
-            title: "Edición colaborativa",
-            duration: "18:00",
+            id: 1,
+            title: "Neurogénesis y células madre neurales",
+            duration: "24:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Múltiples usuarios editando al mismo tiempo",
+            description: "Regeneración del tejido nervioso",
             completed: false
           },
           {
-            id: 5,
-            title: "Comentarios y menciones",
-            duration: "12:00",
+            id: 2,
+            title: "Terapias para lesiones medulares",
+            duration: "28:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Comunícate dentro del software",
-            completed: false
-          },
-          {
-            id: 6,
-            title: "Historial de cambios",
-            duration: "15:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Rastrea quién hizo qué y cuándo",
+            description: "Aplicaciones en trauma medular",
             completed: false
           }
         ],
         quiz: {
-          id: 2,
-          title: "Quiz: Colaboración",
+          id: 1,
+          title: "Quiz: Neuroregeneración",
           questions: [
             {
               id: 1,
-              question: "¿Cómo se menciona a un usuario?",
-              options: ["#usuario", "@usuario", "/usuario", "!usuario"],
-              correctAnswer: 1
-            },
-            {
-              id: 2,
-              question: "¿Por cuánto tiempo se guarda el historial?",
-              options: ["30 días", "90 días", "1 año", "Indefinidamente"],
-              correctAnswer: 3
-            },
-            {
-              id: 3,
-              question: "¿Se pueden resolver comentarios?",
+              question: "¿Qué tipo de células se usan principalmente en neuroregeneración?",
               options: [
-                "No",
-                "Sí, solo el autor",
-                "Sí, cualquier usuario",
-                "Sí, el autor o un admin"
+                "Células madre embrionarias",
+                "Células madre mesenquimales",
+                "Neuronas maduras",
+                "Oligodendrocitos"
               ],
-              correctAnswer: 3
+              correctAnswer: 1
             }
           ],
           passingScore: 70
         }
-      },
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: "Terapia Regenerativa en Cardiología",
+    description: "Aplicaciones de células madre y medicina regenerativa en enfermedades cardiovasculares y regeneración cardíaca.",
+    category: "Especialidades",
+    thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Carlos Méndez",
+    duration: "12 horas",
+    totalLessons: 18,
+    level: "Intermedio",
+    rating: 4.7,
+    students: 1680,
+    modules: [
       {
-        id: 3,
-        title: "Módulo 3: Reportes de Equipo",
-        description: "Mide el rendimiento grupal",
+        id: 1,
+        title: "Módulo 1: Regeneración Cardíaca",
+        description: "Técnicas para regenerar tejido cardíaco",
         lessons: [
           {
-            id: 7,
-            title: "Dashboard de actividad",
+            id: 1,
+            title: "Células madre en infarto de miocardio",
+            duration: "26:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Aplicaciones post-infarto",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Regeneración de válvulas cardíacas",
+            duration: "22:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas regenerativas valvulares",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Regeneración Cardíaca",
+          questions: [
+            {
+              id: 1,
+              question: "¿Cuál es el principal desafío en regeneración cardíaca?",
+              options: [
+                "Obtención de células",
+                "Baja capacidad regenerativa del corazón",
+                "Costo del tratamiento",
+                "Tiempo de recuperación"
+              ],
+              correctAnswer: 1
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Ozonoterapia y Medicina Regenerativa",
+    description: "Combina ozonoterapia con técnicas regenerativas para potenciar resultados en diferentes patologías.",
+    category: "Técnicas Avanzadas",
+    thumbnail: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop&q=80",
+    instructor: "Dra. Patricia Ramírez",
+    duration: "9 horas",
+    totalLessons: 14,
+    level: "Intermedio",
+    rating: 4.6,
+    students: 1320,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Fundamentos de Ozonoterapia",
+        description: "Bases científicas y aplicaciones",
+        lessons: [
+          {
+            id: 1,
+            title: "Mecanismos de acción del ozono",
             duration: "20:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Visualiza la actividad de tu equipo",
+            description: "Cómo actúa el ozono en el organismo",
             completed: false
           },
           {
-            id: 8,
-            title: "Reportes de productividad",
+            id: 2,
+            title: "Protocolos de aplicación",
             duration: "18:00",
             videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Métricas de desempeño",
-            completed: false
-          },
-          {
-            id: 9,
-            title: "Exportación y presentación",
-            duration: "12:00",
-            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            description: "Comparte resultados con stakeholders",
+            description: "Técnicas de administración segura",
             completed: false
           }
         ],
         quiz: {
-          id: 3,
-          title: "Quiz: Reportes de Equipo",
+          id: 1,
+          title: "Quiz: Ozonoterapia",
           questions: [
             {
               id: 1,
-              question: "¿Qué métrica NO está disponible en el dashboard?",
+              question: "¿Cuál es la concentración segura de ozono para uso médico?",
               options: [
-                "Tiempo activo",
-                "Tareas completadas",
-                "Velocidad de escritura",
-                "Proyectos modificados"
+                "1-5%",
+                "5-10%",
+                "10-20%",
+                "20-30%"
               ],
-              correctAnswer: 2
-            },
+              correctAnswer: 0
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 8,
+    title: "Medicina Regenerativa en Traumatología",
+    description: "Aplicaciones específicas en lesiones traumáticas, fracturas complejas y regeneración ósea acelerada.",
+    category: "Especialidades",
+    thumbnail: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Fernando Torres",
+    duration: "11 horas",
+    totalLessons: 17,
+    level: "Intermedio",
+    rating: 4.8,
+    students: 1560,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Regeneración Ósea",
+        description: "Técnicas para acelerar la consolidación",
+        lessons: [
+          {
+            id: 1,
+            title: "Fracturas complejas y no consolidadas",
+            duration: "25:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Tratamiento de pseudoartrosis",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Regeneración de defectos óseos",
+            duration: "23:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas para grandes defectos",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Regeneración Ósea",
+          questions: [
             {
-              id: 2,
-              question: "¿Se pueden programar reportes automáticos?",
+              id: 1,
+              question: "¿Qué factor es más importante en regeneración ósea?",
               options: [
-                "No",
-                "Sí, solo diarios",
-                "Sí, diarios y semanales",
-                "Sí, con múltiples frecuencias"
+                "Tipo de células",
+                "Andamiaje (scaffold)",
+                "Factores de crecimiento",
+                "Todos son importantes"
               ],
               correctAnswer: 3
-            },
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 9,
+    title: "Medicina Regenerativa en Dermatología",
+    description: "Aplicaciones estéticas y terapéuticas en dermatología: cicatrices, quemaduras, alopecia y rejuvenecimiento.",
+    category: "Estética",
+    thumbnail: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop&q=80",
+    instructor: "Dra. Sofía Martínez",
+    duration: "10 horas",
+    totalLessons: 15,
+    level: "Intermedio",
+    rating: 4.9,
+    students: 2100,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Regeneración Cutánea",
+        description: "Técnicas para regenerar la piel",
+        lessons: [
+          {
+            id: 1,
+            title: "Tratamiento de cicatrices y quemaduras",
+            duration: "24:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos regenerativos",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Alopecia y regeneración capilar",
+            duration: "22:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas con células madre",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Regeneración Cutánea",
+          questions: [
             {
-              id: 3,
-              question: "¿En qué formatos se pueden exportar los reportes?",
+              id: 1,
+              question: "¿Cuál es la mejor técnica para cicatrices antiguas?",
               options: [
-                "Solo PDF",
-                "PDF y Excel",
-                "PDF, Excel y PowerPoint",
-                "PDF, Excel, PowerPoint y HTML"
+                "Solo PRP",
+                "Células madre + PRP",
+                "Solo células madre",
+                "Láser exclusivamente"
+              ],
+              correctAnswer: 1
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 10,
+    title: "Longevidad y Medicina Antiaging",
+    description: "Protocolos integrales de medicina regenerativa para optimizar la longevidad y calidad de vida.",
+    category: "Fundamentos",
+    thumbnail: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Alejandro Vargas",
+    duration: "13 horas",
+    totalLessons: 20,
+    level: "Avanzado",
+    rating: 4.9,
+    students: 2450,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Fundamentos de Longevidad",
+        description: "Ciencia del envejecimiento",
+        lessons: [
+          {
+            id: 1,
+            title: "Biología del envejecimiento",
+            duration: "28:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Mecanismos celulares del envejecimiento",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Terapias regenerativas sistémicas",
+            duration: "26:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos antiaging integrales",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Longevidad",
+          questions: [
+            {
+              id: 1,
+              question: "¿Qué factor es más importante para la longevidad?",
+              options: [
+                "Genética",
+                "Estilo de vida",
+                "Medicina regenerativa",
+                "Combinación de todos"
+              ],
+              correctAnswer: 3
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 11,
+    title: "Medicina Regenerativa en Ginecología",
+    description: "Aplicaciones en salud íntima femenina, regeneración vaginal, incontinencia y rejuvenecimiento íntimo.",
+    category: "Especialidades",
+    thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=500&fit=crop&q=80",
+    instructor: "Dra. Carmen López",
+    duration: "8 horas",
+    totalLessons: 12,
+    level: "Intermedio",
+    rating: 4.7,
+    students: 1180,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Regeneración Ginecológica",
+        description: "Técnicas regenerativas en ginecología",
+        lessons: [
+          {
+            id: 1,
+            title: "PRP en atrofia vaginal",
+            duration: "20:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Protocolos de aplicación",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Regeneración del suelo pélvico",
+            duration: "22:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas para incontinencia",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Regeneración Ginecológica",
+          questions: [
+            {
+              id: 1,
+              question: "¿Cuántas sesiones típicamente se requieren?",
+              options: [
+                "1-2 sesiones",
+                "3-4 sesiones",
+                "5-6 sesiones",
+                "8-10 sesiones"
+              ],
+              correctAnswer: 1
+            }
+          ],
+          passingScore: 70
+        }
+      }
+    ]
+  },
+  {
+    id: 12,
+    title: "Medicina Regenerativa en Oftalmología",
+    description: "Aplicaciones en enfermedades oculares, regeneración corneal y tratamiento de patologías retinianas.",
+    category: "Especialidades",
+    thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop&q=80",
+    instructor: "Dr. Miguel Ángel Ruiz",
+    duration: "9 horas",
+    totalLessons: 13,
+    level: "Avanzado",
+    rating: 4.8,
+    students: 980,
+    modules: [
+      {
+        id: 1,
+        title: "Módulo 1: Regeneración Ocular",
+        description: "Técnicas para regenerar tejido ocular",
+        lessons: [
+          {
+            id: 1,
+            title: "Células madre en degeneración macular",
+            duration: "24:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Aplicaciones en retina",
+            completed: false
+          },
+          {
+            id: 2,
+            title: "Regeneración corneal",
+            duration: "20:00",
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            description: "Técnicas para córnea",
+            completed: false
+          }
+        ],
+        quiz: {
+          id: 1,
+          title: "Quiz: Regeneración Ocular",
+          questions: [
+            {
+              id: 1,
+              question: "¿Qué tipo de células se usan en oftalmología regenerativa?",
+              options: [
+                "Células madre embrionarias",
+                "Células madre mesenquimales",
+                "Células madre del limbo",
+                "Todas las anteriores"
               ],
               correctAnswer: 3
             }

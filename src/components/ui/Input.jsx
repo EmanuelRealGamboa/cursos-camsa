@@ -39,7 +39,7 @@ export const Input = ({
             ${error
               ? 'border-red-300 focus:border-red-500 bg-red-50'
               : isFocused
-                ? 'border-maily bg-white shadow-lg shadow-maily/10'
+                ? 'border-logevity bg-white shadow-lg shadow-logevity/10'
                 : 'border-gray-200 bg-gray-50 hover:border-gray-300'
             }
           `}

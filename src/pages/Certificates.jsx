@@ -114,7 +114,7 @@ const Certificates = () => {
     // Marca de agua
     ctx.fillStyle = '#4A90A4';
     ctx.font = 'bold 16px Arial';
-    ctx.fillText('Cursos Maily Te Cuida', 600, 720);
+    ctx.fillText('LOGEVITY - Medicina Regenerativa', 600, 720);
 
     // Descargar
     const link = document.createElement('a');
@@ -135,10 +135,10 @@ const Certificates = () => {
             >
               <Award className="w-12 h-12 text-gray-400" />
             </motion.div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">
               Aún no tienes certificados
             </h1>
-            <p className="text-gray-500 mb-6">
+            <p className="text-gray-500 dark:text-gray-300 mb-6">
               Completa los módulos de los cursos para obtener tus certificados
             </p>
             <Button onClick={() => navigate('/dashboard')}>
@@ -159,10 +159,10 @@ const Certificates = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-2">
             Mis Certificados
           </h1>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-300">
             Has obtenido {certificates.length} certificado{certificates.length !== 1 ? 's' : ''}
           </p>
         </motion.div>
@@ -182,12 +182,12 @@ const Certificates = () => {
                 onClick={() => setSelectedCertificate(cert)}
               >
                 {/* Preview del certificado */}
-                <div className="bg-gradient-to-br from-maily-light to-white rounded-xl p-6 mb-4 border border-maily/20 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-logevity-light to-white rounded-xl p-6 mb-4 border border-logevity/20 relative overflow-hidden">
                   <div className="absolute top-2 right-2">
-                    <Award className="w-8 h-8 text-maily/30" />
+                    <Award className="w-8 h-8 text-logevity/30" />
                   </div>
                   <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-maily mb-2" />
+                    <Heart className="w-8 h-8 mx-auto text-logevity mb-2" />
                     <p className="text-xs text-gray-500 uppercase tracking-wider">
                       Certificado
                     </p>
@@ -231,21 +231,21 @@ const Certificates = () => {
               {/* Vista previa del certificado */}
               <div
                 ref={certificateRef}
-                className="bg-gradient-to-br from-slate-50 to-sky-50 rounded-xl p-8 mb-6 border-4 border-maily relative"
+                className="bg-gradient-to-br from-slate-50 to-sky-50 rounded-xl p-8 mb-6 border-4 border-logevity relative"
               >
                 {/* Borde decorativo interno */}
-                <div className="absolute inset-2 border-2 border-maily-light rounded-lg pointer-events-none" />
+                <div className="absolute inset-2 border-2 border-logevity-light rounded-lg pointer-events-none" />
 
                 <div className="text-center relative">
                   {/* Logo */}
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-maily rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-logevity rounded-full flex items-center justify-center">
                       <Heart className="w-8 h-8 text-white" />
                     </div>
                   </div>
 
                   {/* Título */}
-                  <h2 className="text-2xl font-bold text-gray-800 tracking-wide mb-2">
+                  <h2 className="text-2xl font-heading font-bold text-gray-800 dark:text-gray-100 tracking-wide mb-2">
                     CERTIFICADO DE FINALIZACIÓN
                   </h2>
 
@@ -256,12 +256,12 @@ const Certificates = () => {
                     {selectedCertificate.userName}
                   </h3>
 
-                  <div className="w-48 h-0.5 bg-maily mx-auto mb-4" />
+                  <div className="w-48 h-0.5 bg-logevity mx-auto mb-4" />
 
                   <p className="text-gray-500 mb-2">por completar exitosamente</p>
 
                   {/* Módulo */}
-                  <h4 className="text-xl font-semibold text-maily mb-2">
+                  <h4 className="text-xl font-semibold text-logevity mb-2">
                     {selectedCertificate.moduleTitle}
                   </h4>
 
@@ -283,8 +283,8 @@ const Certificates = () => {
 
                   {/* Firma */}
                   <div className="mt-6 pt-6 border-t border-gray-200">
-                    <p className="text-maily font-semibold">Cursos Maily Te Cuida</p>
-                    <p className="text-xs text-gray-400">Plataforma de aprendizaje</p>
+                    <p className="text-logevity font-semibold">LOGEVITY</p>
+                    <p className="text-xs text-gray-400">Medicina Regenerativa</p>
                   </div>
                 </div>
               </div>
@@ -306,7 +306,7 @@ const Certificates = () => {
                     if (navigator.share) {
                       navigator.share({
                         title: 'Mi certificado',
-                        text: `¡Completé ${selectedCertificate.moduleTitle} en Cursos Maily Te Cuida!`,
+                        text: `¡Completé ${selectedCertificate.moduleTitle} en LOGEVITY!`,
                         url: window.location.href
                       });
                     }

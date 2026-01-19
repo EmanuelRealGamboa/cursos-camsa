@@ -99,26 +99,29 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex">
       {/* Panel izquierdo - Decorativo */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-maily to-maily-dark p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-logevity to-logevity-dark p-12 relative overflow-hidden">
         {/* Círculos decorativos */}
         <div className="absolute top-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
 
-        <div className="relative z-10 flex flex-col justify-between h-full text-white">
-          {/* Logo */}
+        <div className="relative z-10 flex flex-col justify-center h-full text-white">
+          {/* Logo Grande */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
+            className="flex flex-col items-center justify-center mb-12"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                <Heart className="w-7 h-7" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold">Cursos Maily</h1>
-                <p className="text-white/70 text-sm">Te Cuida</p>
-              </div>
+            <div className="w-40 h-40 mb-8 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl border-2 border-white/30">
+              <img 
+                src="/logos/clinican_Mesa de trabajo 1 copiabco.png" 
+                alt="LOGEVITY" 
+                className="w-36 h-36 object-contain"
+              />
+            </div>
+            <div className="text-center">
+              <h1 className="text-5xl font-heading font-bold mb-3">LOGEVITY</h1>
+              <p className="text-white/90 text-xl font-medium">Medicina Regenerativa</p>
             </div>
           </motion.div>
 
@@ -127,16 +130,16 @@ const Auth = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 mt-8"
           >
-            <h2 className="text-4xl font-bold leading-tight">
-              Aprende a dominar<br />
-              el software que<br />
-              <span className="text-maily-accent">transforma tu trabajo</span>
+            <h2 className="text-4xl font-heading font-bold leading-tight">
+              Aprende medicina<br />
+              regenerativa y<br />
+              <span className="text-logevity-accent">transforma vidas</span>
             </h2>
             <p className="text-white/80 text-lg max-w-md">
-              Cursos diseñados para que aprendas a tu ritmo con
-              seguimiento personalizado y certificaciones.
+              Cursos especializados diseñados para profesionales de la salud que buscan
+              actualizarse en las últimas técnicas de medicina regenerativa.
             </p>
 
             {/* Features */}
@@ -163,13 +166,13 @@ const Auth = () => {
             transition={{ delay: 1 }}
             className="text-white/60 text-sm"
           >
-            © 2024 Maily Te Cuida. Todos los derechos reservados.
+            © 2024 LOGEVITY. Todos los derechos reservados.
           </motion.div>
         </div>
       </div>
 
       {/* Panel derecho - Formulario */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50 dark:bg-gray-900">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,21 +180,25 @@ const Auth = () => {
         >
           {/* Logo móvil */}
           <div className="lg:hidden flex items-center gap-3 mb-8 justify-center">
-            <div className="w-10 h-10 bg-maily rounded-xl flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-logevity to-logevity-intense flex items-center justify-center shadow-lg shadow-logevity/30">
+              <img 
+                src="/logos/clinican_Mesa de trabajo 1.png" 
+                alt="LOGEVITY" 
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Cursos Maily</h1>
-              <p className="text-gray-500 text-xs">Te Cuida</p>
+              <h1 className="text-xl font-heading font-bold text-gray-900 dark:text-logevity">LOGEVITY</h1>
+              <p className="text-gray-500 dark:text-gray-400 text-xs">Medicina Regenerativa</p>
             </div>
           </div>
 
           {/* Título */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-gray-100">
               {isLogin ? 'Bienvenido de vuelta' : 'Crea tu cuenta'}
             </h2>
-            <p className="text-gray-500 mt-2">
+            <p className="text-gray-500 dark:text-gray-400 mt-2">
               {isLogin
                 ? 'Ingresa tus credenciales para continuar'
                 : 'Comienza tu viaje de aprendizaje'
@@ -200,13 +207,13 @@ const Auth = () => {
           </div>
 
           {/* Tabs */}
-          <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
+          <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 mb-8">
             <button
               onClick={() => setIsLogin(true)}
               className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
                 isLogin
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
             >
               Iniciar sesión
@@ -215,8 +222,8 @@ const Auth = () => {
               onClick={() => setIsLogin(false)}
               className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
                 !isLogin
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
             >
               Registrarse
@@ -306,7 +313,7 @@ const Auth = () => {
 
             {isLogin && (
               <div className="flex justify-end">
-                <button type="button" className="text-sm text-maily hover:text-maily-dark">
+                <button type="button" className="text-sm text-logevity hover:text-logevity-dark">
                   ¿Olvidaste tu contraseña?
                 </button>
               </div>

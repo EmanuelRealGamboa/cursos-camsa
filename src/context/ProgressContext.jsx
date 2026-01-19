@@ -24,7 +24,7 @@ export const ProgressProvider = ({ children }) => {
   // Cargar progreso del usuario cuando inicie sesión
   useEffect(() => {
     if (user) {
-      const savedProgress = localStorage.getItem(`mailyProgress_${user.id}`);
+      const savedProgress = localStorage.getItem(`logevityProgress_${user.id}`);
       if (savedProgress) {
         setProgress(JSON.parse(savedProgress));
       } else {
@@ -37,7 +37,7 @@ export const ProgressProvider = ({ children }) => {
           lastStudyDate: null
         };
         setProgress(initialProgress);
-        localStorage.setItem(`mailyProgress_${user.id}`, JSON.stringify(initialProgress));
+        localStorage.setItem(`logevityProgress_${user.id}`, JSON.stringify(initialProgress));
       }
     }
   }, [user]);
@@ -46,7 +46,7 @@ export const ProgressProvider = ({ children }) => {
   const saveProgress = (newProgress) => {
     if (user) {
       setProgress(newProgress);
-      localStorage.setItem(`mailyProgress_${user.id}`, JSON.stringify(newProgress));
+      localStorage.setItem(`logevityProgress_${user.id}`, JSON.stringify(newProgress));
     }
   };
 
@@ -133,7 +133,7 @@ export const ProgressProvider = ({ children }) => {
       moduleTitle,
       userName: user?.name || 'Usuario',
       issuedAt: new Date().toISOString(),
-      certificateNumber: `MAILY-${Date.now().toString(36).toUpperCase()}`
+      certificateNumber: `LOGEVITY-${Date.now().toString(36).toUpperCase()}`
     };
 
     const newProgress = { ...progress };

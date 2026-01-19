@@ -64,7 +64,7 @@ const Profile = () => {
         >
           <Card className="relative overflow-hidden">
             {/* Background gradient */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-maily to-maily-dark" />
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-logevity to-logevity-dark" />
 
             <div className="relative pt-16 pb-6 text-center">
               {/* Avatar */}
@@ -114,7 +114,7 @@ const Profile = () => {
                 </div>
               ) : (
                 <>
-                  <h1 className="text-2xl font-bold text-gray-900 mt-4">
+                  <h1 className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100 mt-4">
                     {user?.name}
                   </h1>
                   <p className="text-gray-500">{user?.email}</p>
@@ -155,7 +155,7 @@ const Profile = () => {
                   <stat.icon className={`w-5 h-5 text-${stat.color}-500`} />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                  <p className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
                   <p className="text-xs text-gray-500">{stat.label}</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const Profile = () => {
           className="mt-6"
         >
           <Card>
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+            <h2 className="text-lg font-heading font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Mi progreso en cursos
             </h2>
             <div className="space-y-4">
@@ -197,7 +197,7 @@ const Profile = () => {
                       <div className="flex items-center gap-2 mt-1">
                         <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-maily rounded-full transition-all"
+                            className="h-full bg-logevity rounded-full transition-all"
                             style={{ width: `${progressData.percentage}%` }}
                           />
                         </div>
@@ -232,7 +232,7 @@ const Profile = () => {
             className="mt-6"
           >
             <Card>
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              <h2 className="text-lg font-heading font-semibold text-gray-900 dark:text-gray-100 mb-4">
                 Certificados obtenidos
               </h2>
               <div className="space-y-3">

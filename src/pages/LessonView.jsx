@@ -108,19 +108,19 @@ const LessonView = () => {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
             onClick={() => navigate(`/course/${course.id}`)}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="hidden sm:inline">Volver al curso</span>
           </button>
 
-          <div className="flex items-center gap-2 text-gray-300">
-            <span className="text-sm">{course.title}</span>
-            <ChevronRight className="w-4 h-4 text-gray-500" />
-            <span className="text-sm text-white">{module.title.replace(/Módulo \d+: /, '')}</span>
+          <div className="flex items-center gap-2 text-gray-300 dark:text-gray-200">
+            <span className="text-sm text-white dark:text-white">{course.title}</span>
+            <ChevronRight className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            <span className="text-sm text-white dark:text-white">{module.title.replace(/Módulo \d+: /, '')}</span>
           </div>
 
-          <div className="text-gray-400 text-sm">
+          <div className="text-gray-400 dark:text-gray-300 text-sm">
             {currentIndex} / {totalLessons}
           </div>
         </div>
@@ -165,7 +165,7 @@ const LessonView = () => {
                       <h3 className="text-2xl font-bold text-white mb-2">
                         ¡Lección completada!
                       </h3>
-                      <p className="text-gray-400">
+                      <p className="text-gray-400 dark:text-gray-300">
                         Continúa con la siguiente lección
                       </p>
                     </motion.div>
@@ -180,19 +180,19 @@ const LessonView = () => {
                 <button
                   onClick={() => prevLesson && navigate(`/course/${course.id}/lesson/${module.id}/${prevLesson.id}`)}
                   disabled={!prevLesson}
-                  className="p-2 text-gray-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
                   <SkipBack className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="p-3 bg-maily text-white rounded-full hover:bg-maily-dark transition-colors"
+                  className="p-3 bg-logevity text-white rounded-full hover:bg-logevity-dark transition-colors"
                 >
                   {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                 </button>
                 <button
                   onClick={handleNextLesson}
-                  className="p-2 text-gray-400 hover:text-white transition-colors"
+                  className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
                 >
                   <SkipForward className="w-5 h-5" />
                 </button>
@@ -201,11 +201,11 @@ const LessonView = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
-                  className="p-2 text-gray-400 hover:text-white transition-colors"
+                  className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
                 >
                   {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                 </button>
-                <button className="p-2 text-gray-400 hover:text-white transition-colors">
+                <button className="p-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                   <Maximize className="w-5 h-5" />
                 </button>
               </div>
@@ -237,20 +237,20 @@ const LessonView = () => {
                 )}
               </div>
 
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-400 dark:text-gray-300 mb-6">
                 {lesson.description}
               </p>
 
-              <div className="flex items-center gap-6 text-gray-400">
+              <div className="flex items-center gap-6 text-gray-400 dark:text-gray-300">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
                   <span>{lesson.duration}</span>
                 </div>
-                <button className="flex items-center gap-2 hover:text-white transition-colors">
+                <button className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                   <ThumbsUp className="w-4 h-4" />
                   <span>Me gusta</span>
                 </button>
-                <button className="flex items-center gap-2 hover:text-white transition-colors">
+                <button className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                   <Share2 className="w-4 h-4" />
                   <span>Compartir</span>
                 </button>
@@ -261,12 +261,12 @@ const LessonView = () => {
                 {prevLesson ? (
                   <button
                     onClick={() => navigate(`/course/${course.id}/lesson/${module.id}/${prevLesson.id}`)}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
                   >
                     <ArrowLeft className="w-5 h-5" />
                     <div className="text-left">
-                      <p className="text-xs text-gray-500">Anterior</p>
-                      <p className="text-sm">{prevLesson.title}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Anterior</p>
+                      <p className="text-sm text-white dark:text-white">{prevLesson.title}</p>
                     </div>
                   </button>
                 ) : (
@@ -288,7 +288,7 @@ const LessonView = () => {
           <div className="bg-gray-800 border-l border-gray-700 overflow-y-auto max-h-[calc(100vh-64px)]">
             <div className="p-4 border-b border-gray-700">
               <h3 className="font-semibold text-white">{module.title}</h3>
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-gray-400 dark:text-gray-300 mt-1">
                 {module.lessons.filter(l => isLessonComplete(course.id, module.id, l.id)).length} de {module.lessons.length} completadas
               </p>
             </div>
@@ -305,8 +305,8 @@ const LessonView = () => {
                     className={`
                       w-full p-4 flex items-start gap-3 text-left transition-colors
                       ${isCurrentLesson
-                        ? 'bg-maily/20 border-l-2 border-maily'
-                        : 'hover:bg-gray-700/50'
+                        ? 'bg-logevity/20 border-l-2 border-logevity'
+                        : 'hover:bg-gray-700/50 dark:hover:bg-gray-700/50'
                       }
                     `}
                   >
@@ -315,8 +315,8 @@ const LessonView = () => {
                       ${isComplete
                         ? 'bg-green-500 text-white'
                         : isCurrentLesson
-                          ? 'bg-maily text-white'
-                          : 'bg-gray-600 text-gray-400'
+                          ? 'bg-logevity text-white'
+                          : 'bg-gray-600 dark:bg-gray-600 text-gray-400 dark:text-gray-300'
                       }
                     `}>
                       {isComplete ? (
@@ -330,11 +330,11 @@ const LessonView = () => {
                     <div className="flex-1 min-w-0">
                       <p className={`
                         text-sm font-medium truncate
-                        ${isCurrentLesson ? 'text-white' : isComplete ? 'text-gray-400' : 'text-gray-300'}
+                        ${isCurrentLesson ? 'text-white' : isComplete ? 'text-gray-400 dark:text-gray-400' : 'text-gray-300 dark:text-gray-200'}
                       `}>
                         {l.title}
                       </p>
-                      <p className="text-xs text-gray-500 mt-0.5">{l.duration}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{l.duration}</p>
                     </div>
                   </button>
                 );
@@ -343,14 +343,14 @@ const LessonView = () => {
               {/* Quiz button */}
               <button
                 onClick={() => navigate(`/course/${course.id}/quiz/${module.id}`)}
-                className="w-full p-4 flex items-center gap-3 bg-maily/10 hover:bg-maily/20 transition-colors"
+                className="w-full p-4 flex items-center gap-3 bg-logevity/10 hover:bg-logevity/20 transition-colors"
               >
-                <div className="w-6 h-6 rounded-full bg-maily text-white flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-logevity text-white flex items-center justify-center">
                   <BookOpen className="w-3 h-3" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-maily">Quiz del módulo</p>
-                  <p className="text-xs text-gray-500">{module.quiz.questions.length} preguntas</p>
+                  <p className="text-sm font-medium text-logevity dark:text-logevity">Quiz del módulo</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{module.quiz.questions.length} preguntas</p>
                 </div>
               </button>
             </div>

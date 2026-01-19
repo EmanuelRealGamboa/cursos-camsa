@@ -123,15 +123,15 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen pb-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-12">
       {/* Header con saludo */}
-      <div className="bg-gradient-to-br from-maily via-maily to-maily-dark text-white">
+      <div className="bg-gradient-to-br from-logevity via-logevity to-logevity-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-2xl sm:text-3xl font-bold">
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold">
               {getGreeting()}, {user?.name?.split(' ')[0]}!
             </h1>
             <p className="text-white/80 mt-2">
@@ -157,7 +157,7 @@ const Dashboard = () => {
                     <stat.icon className={`w-6 h-6 ${stat.color.replace('bg-', 'text-')}`} />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                    <p className="text-2xl font-heading font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
                     <p className="text-sm text-gray-500">{stat.label}</p>
                   </div>
                 </div>
@@ -179,12 +179,12 @@ const Dashboard = () => {
                 transition={{ delay: 0.3 }}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-semibold text-gray-900">
+                  <h2 className="text-xl font-heading font-semibold text-gray-900 dark:text-gray-100">
                     Continuar aprendiendo
                   </h2>
                   <Link
                     to="/courses"
-                    className="text-maily hover:text-maily-dark text-sm font-medium flex items-center gap-1"
+                    className="text-logevity hover:text-logevity-dark text-sm font-medium flex items-center gap-1"
                   >
                     Ver todos
                     <ChevronRight className="w-4 h-4" />
@@ -203,10 +203,10 @@ const Dashboard = () => {
                           <Badge variant="primary" size="sm" className="mb-2">
                             {course.level}
                           </Badge>
-                          <h3 className="font-semibold text-gray-900 truncate">
+                          <h3 className="font-semibold text-gray-900 dark:text-white truncate">
                             {course.title}
                           </h3>
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                             Módulo {course.progress.completedModules + 1} de {course.progress.totalModules}
                           </p>
                           <div className="mt-3">
@@ -217,7 +217,7 @@ const Dashboard = () => {
                             />
                           </div>
                         </div>
-                        <button className="self-center p-3 bg-maily text-white rounded-full hover:bg-maily-dark transition-colors">
+                        <button className="self-center p-3 bg-logevity text-white rounded-full hover:bg-logevity-dark transition-colors">
                           <Play className="w-5 h-5" />
                         </button>
                       </Card>
@@ -234,7 +234,7 @@ const Dashboard = () => {
               transition={{ delay: 0.4 }}
             >
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-gray-900">
+                <h2 className="text-xl font-heading font-semibold text-gray-900 dark:text-white">
                   Explora nuestros cursos
                 </h2>
               </div>
@@ -260,11 +260,14 @@ const Dashboard = () => {
                               src={course.thumbnail}
                               alt={course.title}
                               className="w-full h-40 object-cover"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/400x250/D4AF37/FFFFFF?text=${encodeURIComponent(course.title.substring(0, 30))}`;
+                              }}
                             />
                             {courseProgress.percentage > 0 && (
                               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
                                 <div
-                                  className="h-full bg-maily transition-all"
+                                  className="h-full bg-logevity transition-all"
                                   style={{ width: `${courseProgress.percentage}%` }}
                                 />
                               </div>
@@ -279,10 +282,10 @@ const Dashboard = () => {
                             </div>
                           </div>
                           <div className="p-4">
-                            <h3 className="font-semibold text-gray-900 line-clamp-1">
+                            <h3 className="font-semibold text-gray-900 dark:text-white line-clamp-1">
                               {course.title}
                             </h3>
-                            <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                            <p className="text-sm text-gray-500 dark:text-gray-300 mt-1 line-clamp-2">
                               {course.description}
                             </p>
                             <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
@@ -320,9 +323,9 @@ const Dashboard = () => {
               transition={{ delay: 0.5 }}
             >
               <Card>
-                <h3 className="font-semibold text-gray-900 mb-4">Tu progreso general</h3>
+                <h3 className="font-heading font-semibold text-gray-900 dark:text-white mb-4">Tu progreso general</h3>
                 <div className="space-y-4">
-                  <div className="text-center p-6 bg-gradient-to-br from-maily-light to-white rounded-xl">
+                  <div className="text-center p-6 bg-gradient-to-br from-logevity-light to-white rounded-xl">
                     <div className="relative w-24 h-24 mx-auto mb-3">
                       <svg className="w-full h-full transform -rotate-90">
                         <circle
@@ -345,7 +348,7 @@ const Dashboard = () => {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-maily">
+                        <span className="text-2xl font-bold text-logevity">
                           {Math.round((stats.coursesCompleted / coursesData.length) * 100)}%
                         </span>
                       </div>
@@ -361,8 +364,8 @@ const Dashboard = () => {
                         <Flame className="w-5 h-5 text-orange-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">{stats.streak} días seguidos</p>
-                        <p className="text-xs text-gray-500">¡Sigue así!</p>
+                        <p className="font-medium text-gray-900 dark:text-white">{stats.streak} días seguidos</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-300">¡Sigue así!</p>
                       </div>
                     </div>
                   )}
@@ -379,8 +382,8 @@ const Dashboard = () => {
               >
                 <Card>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-gray-900">Certificados recientes</h3>
-                    <Link to="/certificates" className="text-maily text-sm hover:text-maily-dark">
+                    <h3 className="font-heading font-semibold text-gray-900 dark:text-white">Certificados recientes</h3>
+                    <Link to="/certificates" className="text-logevity text-sm hover:text-logevity-dark">
                       Ver todos
                     </Link>
                   </div>
@@ -394,10 +397,10 @@ const Dashboard = () => {
                           <Award className="w-4 h-4 text-yellow-600" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate">
+                          <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
                             {cert.moduleTitle}
                           </p>
-                          <p className="text-xs text-gray-500">{cert.courseTitle}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-300">{cert.courseTitle}</p>
                         </div>
                       </div>
                     ))}
@@ -413,7 +416,7 @@ const Dashboard = () => {
               transition={{ delay: 0.7 }}
             >
               <Card>
-                <h3 className="font-semibold text-gray-900 mb-4">Nuestros instructores</h3>
+                <h3 className="font-heading font-semibold text-gray-900 dark:text-white mb-4">Nuestros instructores</h3>
                 <div className="space-y-3">
                   {[...new Set(coursesData.map(c => c.instructor))].map((instructor, index) => (
                     <div key={index} className="flex items-center gap-3">
@@ -423,8 +426,8 @@ const Dashboard = () => {
                         className="w-10 h-10 rounded-full"
                       />
                       <div>
-                        <p className="text-sm font-medium text-gray-900">{instructor}</p>
-                        <p className="text-xs text-gray-500">Instructor certificado</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">{instructor}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-300">Instructor certificado</p>
                       </div>
                     </div>
                   ))}

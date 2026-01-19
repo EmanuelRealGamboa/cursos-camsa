@@ -12,8 +12,8 @@ export const Card = ({
     <motion.div
       whileHover={hover ? { y: -4, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' } : {}}
       className={`
-        bg-white rounded-2xl
-        border border-gray-100
+        bg-white dark:bg-gray-800 rounded-2xl
+        border border-gray-100 dark:border-gray-700
         shadow-sm
         transition-all duration-300
         ${padding ? 'p-6' : ''}

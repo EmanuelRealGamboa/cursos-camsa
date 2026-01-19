@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const variants = {
-  primary: 'bg-maily-light text-maily',
+  primary: 'bg-logevity-light text-logevity',
   secondary: 'bg-gray-100 text-gray-600',
   success: 'bg-green-100 text-green-600',
   warning: 'bg-yellow-100 text-yellow-600',

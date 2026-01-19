@@ -286,7 +286,7 @@ const QuizView = () => {
         {/* Progress bar */}
         <div className="h-1 bg-gray-200">
           <motion.div
-            className="h-full bg-maily"
+            className="h-full bg-logevity"
             initial={{ width: 0 }}
             animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             transition={{ duration: 0.3 }}
@@ -303,9 +303,9 @@ const QuizView = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-6"
           >
-            <Card className="bg-maily-light/50 border-maily/20">
+            <Card className="bg-logevity-light/50 border-logevity/20">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-maily mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-logevity mt-0.5" />
                 <div>
                   <p className="font-medium text-gray-900">Quiz: {module.title}</p>
                   <p className="text-sm text-gray-600 mt-1">
@@ -328,7 +328,7 @@ const QuizView = () => {
           >
             <Card>
               <div className="mb-6">
-                <span className="text-sm text-maily font-medium">
+                <span className="text-sm text-logevity font-medium">
                   Pregunta {currentQuestion + 1}
                 </span>
                 <h2 className="text-xl font-semibold text-gray-900 mt-2">
@@ -348,7 +348,7 @@ const QuizView = () => {
                       className={`
                         w-full p-4 rounded-xl border-2 text-left transition-all
                         ${isSelected
-                          ? 'border-maily bg-maily-light'
+                          ? 'border-logevity bg-logevity-light'
                           : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                         }
                       `}
@@ -359,13 +359,13 @@ const QuizView = () => {
                         <div className={`
                           w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0
                           ${isSelected
-                            ? 'border-maily bg-maily text-white'
+                            ? 'border-logevity bg-logevity text-white'
                             : 'border-gray-300'
                           }
                         `}>
                           {isSelected && <CheckCircle className="w-4 h-4" />}
                         </div>
-                        <span className={isSelected ? 'text-maily font-medium' : 'text-gray-700'}>
+                        <span className={isSelected ? 'text-logevity font-medium' : 'text-gray-700'}>
                           {option}
                         </span>
                       </div>
@@ -397,9 +397,9 @@ const QuizView = () => {
                 className={`
                   w-8 h-8 rounded-full text-sm font-medium transition-all
                   ${currentQuestion === index
-                    ? 'bg-maily text-white'
+                    ? 'bg-logevity text-white'
                     : selectedAnswers[q.id] !== undefined
-                      ? 'bg-maily-light text-maily'
+                      ? 'bg-logevity-light text-logevity'
                       : 'bg-gray-200 text-gray-500 hover:bg-gray-300'
                   }
                 `}

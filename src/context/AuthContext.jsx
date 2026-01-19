@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Verificar si hay un usuario guardado en localStorage
-    const savedUser = localStorage.getItem('mailyUser');
+    const savedUser = localStorage.getItem('logevityUser');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
@@ -25,20 +25,20 @@ export const AuthProvider = ({ children }) => {
 
   const login = (email, password) => {
     // Simulación de login - en producción esto sería una llamada al backend
-    const users = JSON.parse(localStorage.getItem('mailyUsers') || '[]');
+    const users = JSON.parse(localStorage.getItem('logevityUsers') || '[]');
     const foundUser = users.find(u => u.email === email && u.password === password);
 
     if (foundUser) {
       const userData = { ...foundUser, password: undefined };
       setUser(userData);
-      localStorage.setItem('mailyUser', JSON.stringify(userData));
+      localStorage.setItem('logevityUser', JSON.stringify(userData));
       return { success: true };
     }
     return { success: false, error: 'Credenciales incorrectas' };
   };
 
   const register = (userData) => {
-    const users = JSON.parse(localStorage.getItem('mailyUsers') || '[]');
+    const users = JSON.parse(localStorage.getItem('logevityUsers') || '[]');
 
     // Verificar si el email ya existe
     if (users.find(u => u.email === userData.email)) {
@@ -49,19 +49,19 @@ export const AuthProvider = ({ children }) => {
       id: Date.now(),
       ...userData,
       createdAt: new Date().toISOString(),
-      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(userData.name)}&background=4A90A4&color=fff`
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(userData.name)}&background=FFD700&color=000`
     };
 
     users.push(newUser);
-    localStorage.setItem('mailyUsers', JSON.stringify(users));
+    localStorage.setItem('logevityUsers', JSON.stringify(users));
 
     // Auto login después del registro
     const userDataClean = { ...newUser, password: undefined };
     setUser(userDataClean);
-    localStorage.setItem('mailyUser', JSON.stringify(userDataClean));
+    localStorage.setItem('logevityUser', JSON.stringify(userDataClean));
 
     // Inicializar progreso vacío para el nuevo usuario
-    localStorage.setItem(`mailyProgress_${newUser.id}`, JSON.stringify({
+    localStorage.setItem(`logevityProgress_${newUser.id}`, JSON.stringify({
       courses: {},
       certificates: [],
       totalStudyTime: 0,
@@ -74,20 +74,20 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('mailyUser');
+    localStorage.removeItem('logevityUser');
   };
 
   const updateProfile = (updates) => {
     const updatedUser = { ...user, ...updates };
     setUser(updatedUser);
-    localStorage.setItem('mailyUser', JSON.stringify(updatedUser));
+    localStorage.setItem('logevityUser', JSON.stringify(updatedUser));
 
     // También actualizar en la lista de usuarios
-    const users = JSON.parse(localStorage.getItem('mailyUsers') || '[]');
+    const users = JSON.parse(localStorage.getItem('logevityUsers') || '[]');
     const userIndex = users.findIndex(u => u.id === user.id);
     if (userIndex !== -1) {
       users[userIndex] = { ...users[userIndex], ...updates };
-      localStorage.setItem('mailyUsers', JSON.stringify(users));
+      localStorage.setItem('logevityUsers', JSON.stringify(users));
     }
   };
 
