@@ -6,3 +6,4 @@ export { default as QuizView } from './QuizView';
 export { default as Certificates } from './Certificates';
 export { default as Profile } from './Profile';
 export { default as CoursesList } from './CoursesList';
+export { default as Blog } from './Blog';

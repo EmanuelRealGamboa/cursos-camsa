@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -10,16 +10,20 @@ import {
   ChevronRight,
   Flame,
   Star,
-  Users
+  Users,
+  ExternalLink,
+  Video
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useProgress } from '../context/ProgressContext';
-import { Card, ProgressBar, Badge } from '../components/ui';
+import { Card, ProgressBar, Badge, Modal } from '../components/ui';
 import coursesData from '../data/courses';
+import { instructorsData, getInstructorByName } from '../data/instructors';
 
 const Dashboard = () => {
   const { user } = useAuth();
   const { progress, getCourseProgress } = useProgress();
+  const [selectedInstructor, setSelectedInstructor] = useState(null);
 
   // Calcular estadísticas
   const stats = useMemo(() => {
@@ -423,25 +427,183 @@ const Dashboard = () => {
               <Card>
                 <h3 className="font-heading font-semibold text-gray-900 dark:text-white mb-4">Nuestros instructores</h3>
                 <div className="space-y-3">
-                  {[...new Set(coursesData.map(c => c.instructor))].map((instructor, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <img
-                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(instructor)}&background=4A90A4&color=fff`}
-                        alt={instructor}
-                        className="w-10 h-10 rounded-full"
-                      />
-                      <div>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">{instructor}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-300">Instructor certificado</p>
-                      </div>
-                    </div>
-                  ))}
+                  {[...new Set(coursesData.map(c => c.instructor))].map((instructorName, index) => {
+                    const instructor = getInstructorByName(instructorName);
+                    return (
+                      <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setSelectedInstructor(instructor)}
+                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                      >
+                        <img
+                          src={instructor?.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(instructorName)}&background=4A90A4&color=fff`}
+                          alt={instructorName}
+                          className="w-12 h-12 rounded-full object-cover border-2 border-logevity/20"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(instructorName)}&background=4A90A4&color=fff`;
+                          }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{instructorName}</p>
+                            {instructor?.country && (
+                              <span className="text-lg" title={instructor.countryName}>
+                                {instructor.country}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-500 dark:text-gray-300 truncate">
+                            {instructor?.specialty || 'Instructor certificado'}
+                          </p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </Card>
             </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Modal de Instructor */}
+      <Modal
+        isOpen={!!selectedInstructor}
+        onClose={() => setSelectedInstructor(null)}
+        size="xl"
+        title=""
+      >
+        {selectedInstructor && (
+          <div className="space-y-6">
+            {/* Header con imagen y nombre */}
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+              <img
+                src={selectedInstructor.image}
+                alt={selectedInstructor.name}
+                className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-logevity/20 shadow-lg"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedInstructor.name)}&background=4A90A4&color=fff&size=128`;
+                }}
+              />
+              <div className="flex-1 text-center sm:text-left">
+                <div className="flex items-center gap-3 justify-center sm:justify-start mb-2">
+                  <h2 className="text-2xl font-heading font-bold text-gray-900 dark:text-white">
+                    {selectedInstructor.name}
+                  </h2>
+                  {selectedInstructor.country && (
+                    <span className="text-3xl" title={selectedInstructor.countryName}>
+                      {selectedInstructor.country}
+                    </span>
+                  )}
+                </div>
+                <p className="text-logevity dark:text-logevity-accent font-semibold mb-3">
+                  {selectedInstructor.specialty}
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                  {selectedInstructor.credentials.map((cred, idx) => (
+                    <Badge key={idx} variant="primary" size="sm">
+                      {cred}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Descripción */}
+            <div>
+              <h3 className="text-lg font-heading font-semibold text-gray-900 dark:text-white mb-2">
+                Sobre el instructor
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                {selectedInstructor.description}
+              </p>
+            </div>
+
+            {/* Cursos que imparte */}
+            <div>
+              <h3 className="text-lg font-heading font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-logevity" />
+                Cursos que imparte
+              </h3>
+              <div className="space-y-2">
+                {selectedInstructor.courses.map((courseId) => {
+                  const course = coursesData.find(c => c.id === courseId);
+                  if (!course) return null;
+                  return (
+                    <Link
+                      key={courseId}
+                      to={`/course/${courseId}`}
+                      onClick={() => setSelectedInstructor(null)}
+                      className="block p-3 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-gray-900 dark:text-white group-hover:text-logevity transition-colors truncate">
+                            {course.title}
+                          </p>
+                          <div className="flex items-center gap-3 mt-1 text-xs text-gray-500 dark:text-gray-400">
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-3 h-3" />
+                              {course.duration}
+                            </span>
+                            <Badge
+                              variant={course.level === 'Principiante' ? 'success' : course.level === 'Intermedio' ? 'warning' : 'danger'}
+                              size="sm"
+                            >
+                              {course.level}
+                            </Badge>
+                          </div>
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-logevity transition-colors flex-shrink-0 ml-2" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Videos de medicina */}
+            <div>
+              <h3 className="text-lg font-heading font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                <Video className="w-5 h-5 text-logevity" />
+                Videos de medicina
+              </h3>
+              <div className="space-y-4">
+                {selectedInstructor.videos.map((video, index) => (
+                  <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-3">
+                      {video.title}
+                    </h4>
+                    <div className="aspect-video w-full rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700">
+                      <iframe
+                        src={video.embedUrl}
+                        title={video.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    <a
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-3 text-sm text-logevity hover:text-logevity-dark transition-colors"
+                    >
+                      Ver en YouTube
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };

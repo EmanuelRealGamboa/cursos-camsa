@@ -105,22 +105,20 @@ const Auth = () => {
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
 
         <div className="relative z-10 flex flex-col justify-center h-full text-white">
-          {/* Logo Grande */}
+          {/* Logo Grande - solo letras blancas, sin cuadro */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="flex flex-col items-center justify-center mb-12"
           >
-            <div className="w-40 h-40 mb-8 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl border-2 border-white/30">
-              <img 
-                src="/logos/clinican_Mesa de trabajo 1 copiabco.png" 
-                alt="LOGEVITY" 
-                className="w-36 h-36 object-contain"
-              />
-            </div>
+            <img 
+              src="/logos/Longevity360-03.png" 
+              alt="Longevity 360" 
+              className="w-48 h-auto max-h-36 object-contain object-center mb-8 brightness-0 invert"
+            />
             <div className="text-center">
-              <h1 className="text-5xl font-heading font-bold mb-3">LOGEVITY</h1>
+              <h1 className="text-5xl font-heading font-bold mb-3">Longevity 360</h1>
               <p className="text-white/90 text-xl font-medium">Medicina Regenerativa</p>
             </div>
           </motion.div>
@@ -166,7 +164,7 @@ const Auth = () => {
             transition={{ delay: 1 }}
             className="text-white/60 text-sm"
           >
-            © 2024 LOGEVITY. Todos los derechos reservados.
+            © 2024 Longevity 360. Todos los derechos reservados.
           </motion.div>
         </div>
       </div>
@@ -178,18 +176,16 @@ const Auth = () => {
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-md"
         >
-          {/* Logo móvil */}
-          <div className="lg:hidden flex items-center gap-3 mb-8 justify-center">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-logevity to-logevity-intense flex items-center justify-center shadow-lg shadow-logevity/30">
-              <img 
-                src="/logos/clinican_Mesa de trabajo 1.png" 
-                alt="LOGEVITY" 
-                className="w-8 h-8 object-contain"
-              />
-            </div>
+          {/* Logo móvil - solo letras blancas, sin cuadro */}
+          <div className="lg:hidden flex items-center gap-3 mb-8 justify-center py-4 px-4 rounded-xl bg-slate-800 dark:bg-slate-900">
+            <img 
+              src="/logos/Longevity360-03.png" 
+              alt="Longevity 360" 
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
             <div>
-              <h1 className="text-xl font-heading font-bold text-gray-900 dark:text-logevity">LOGEVITY</h1>
-              <p className="text-gray-500 dark:text-gray-400 text-xs">Medicina Regenerativa</p>
+              <h1 className="text-xl font-heading font-bold text-white">Longevity 360</h1>
+              <p className="text-white/80 text-xs">Medicina Regenerativa</p>
             </div>
           </div>
 

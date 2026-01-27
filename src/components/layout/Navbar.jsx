@@ -13,7 +13,8 @@ import {
   Bell,
   Search,
   Sun,
-  Moon
+  Moon,
+  Newspaper
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -29,6 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { path: '/dashboard', label: 'Inicio', icon: Home },
     { path: '/courses', label: 'Cursos', icon: BookOpen },
+    { path: '/blog', label: 'Blog', icon: Newspaper },
     { path: '/certificates', label: 'Certificados', icon: Award }
   ];
 
@@ -49,17 +51,15 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - solo letras, sin cuadro */}
           <Link to="/dashboard" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-logevity to-logevity-intense flex items-center justify-center shadow-lg shadow-logevity/30">
-              <img 
-                src={isDark ? "/logos/clinican_Mesa de trabajo 1 copiabco.png" : "/logos/clinican_Mesa de trabajo 1.png"} 
-                alt="LOGEVITY" 
-                className="w-8 h-8 object-contain"
-              />
-            </div>
+            <img 
+              src={isDark ? "/logos/Longevity360-03.png" : "/logos/Longevity360_Mesa de trabajo 1.png"} 
+              alt="Longevity 360" 
+              className={`h-8 w-auto object-contain ${isDark ? 'brightness-0 invert' : ''}`}
+            />
             <div className="hidden sm:block">
-              <h1 className="text-lg font-heading font-bold text-gray-900 dark:text-logevity">LOGEVITY</h1>
+              <h1 className="text-lg font-heading font-bold text-gray-900 dark:text-white">Longevity 360</h1>
               <p className="text-xs font-body text-gray-500 dark:text-gray-400 -mt-0.5">Medicina Regenerativa</p>
             </div>
           </Link>

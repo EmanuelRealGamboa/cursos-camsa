@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -6,9 +6,6 @@ import {
   Download,
   Share2,
   Calendar,
-  BookOpen,
-  X,
-  Heart,
   CheckCircle
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -34,93 +31,112 @@ const Certificates = () => {
   };
 
   const handleDownload = async (cert) => {
-    // Crear elemento canvas para generar imagen
     const canvas = document.createElement('canvas');
     canvas.width = 1200;
     canvas.height = 800;
     const ctx = canvas.getContext('2d');
 
-    // Fondo
-    const gradient = ctx.createLinearGradient(0, 0, 1200, 800);
-    gradient.addColorStop(0, '#f8fafc');
-    gradient.addColorStop(1, '#e0f2fe');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 1200, 800);
+    const drawCertificate = (logoImg = null) => {
+      // Fondo
+      const gradient = ctx.createLinearGradient(0, 0, 1200, 800);
+      gradient.addColorStop(0, '#f8fafc');
+      gradient.addColorStop(1, '#e0f2fe');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 1200, 800);
 
-    // Borde decorativo
-    ctx.strokeStyle = '#4A90A4';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(40, 40, 1120, 720);
+      // Borde decorativo
+      ctx.strokeStyle = '#4A90A4';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(40, 40, 1120, 720);
 
-    // Borde interno
-    ctx.strokeStyle = '#E8F4F8';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(50, 50, 1100, 700);
+      // Borde interno
+      ctx.strokeStyle = '#E8F4F8';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(50, 50, 1100, 700);
 
-    // Logo (corazón simple)
-    ctx.fillStyle = '#4A90A4';
-    ctx.font = '40px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('♥', 600, 120);
+      // Logo Longevity 360
+      if (logoImg) {
+        const logoSize = 100;
+        const logoX = 600 - logoSize / 2;
+        ctx.drawImage(logoImg, logoX, 60, logoSize, logoSize);
+      } else {
+        ctx.fillStyle = '#4A90A4';
+        ctx.font = '40px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('♥', 600, 120);
+      }
 
-    // Título del certificado
-    ctx.fillStyle = '#1e293b';
-    ctx.font = 'bold 48px Georgia';
-    ctx.textAlign = 'center';
-    ctx.fillText('CERTIFICADO DE FINALIZACIÓN', 600, 200);
+      // Título del certificado
+      ctx.fillStyle = '#1e293b';
+      ctx.font = 'bold 48px Georgia';
+      ctx.textAlign = 'center';
+      ctx.fillText('CERTIFICADO DE FINALIZACIÓN', 600, 200);
 
-    // Subtítulo
-    ctx.fillStyle = '#64748b';
-    ctx.font = '20px Arial';
-    ctx.fillText('Este certificado se otorga a', 600, 280);
+      // Subtítulo
+      ctx.fillStyle = '#64748b';
+      ctx.font = '20px Arial';
+      ctx.fillText('Este certificado se otorga a', 600, 280);
 
-    // Nombre del usuario
-    ctx.fillStyle = '#0f172a';
-    ctx.font = 'bold 44px Georgia';
-    ctx.fillText(cert.userName || 'Usuario', 600, 350);
+      // Nombre del usuario
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 44px Georgia';
+      ctx.fillText(cert.userName || 'Usuario', 600, 350);
 
-    // Línea decorativa
-    ctx.strokeStyle = '#4A90A4';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(300, 380);
-    ctx.lineTo(900, 380);
-    ctx.stroke();
+      // Línea decorativa
+      ctx.strokeStyle = '#4A90A4';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(300, 380);
+      ctx.lineTo(900, 380);
+      ctx.stroke();
 
-    // Texto de completación
-    ctx.fillStyle = '#64748b';
-    ctx.font = '20px Arial';
-    ctx.fillText('por completar exitosamente', 600, 440);
+      // Texto de completación
+      ctx.fillStyle = '#64748b';
+      ctx.font = '20px Arial';
+      ctx.fillText('por completar exitosamente', 600, 440);
 
-    // Nombre del módulo
-    ctx.fillStyle = '#4A90A4';
-    ctx.font = 'bold 32px Georgia';
-    ctx.fillText(cert.moduleTitle, 600, 500);
+      // Nombre del módulo
+      ctx.fillStyle = '#4A90A4';
+      ctx.font = 'bold 32px Georgia';
+      ctx.fillText(cert.moduleTitle, 600, 500);
 
-    // Nombre del curso
-    ctx.fillStyle = '#1e293b';
-    ctx.font = '24px Arial';
-    ctx.fillText(`del curso "${cert.courseTitle}"`, 600, 550);
+      // Nombre del curso
+      ctx.fillStyle = '#1e293b';
+      ctx.font = '24px Arial';
+      ctx.fillText(`del curso "${cert.courseTitle}"`, 600, 550);
 
-    // Fecha
-    ctx.fillStyle = '#64748b';
-    ctx.font = '18px Arial';
-    ctx.fillText(`Emitido el ${formatDate(cert.issuedAt)}`, 600, 620);
+      // Fecha
+      ctx.fillStyle = '#64748b';
+      ctx.font = '18px Arial';
+      ctx.fillText(`Emitido el ${formatDate(cert.issuedAt)}`, 600, 620);
 
-    // Número de certificado
-    ctx.font = '14px Arial';
-    ctx.fillText(`Certificado No. ${cert.certificateNumber}`, 600, 660);
+      // Número de certificado
+      ctx.font = '14px Arial';
+      ctx.fillText(`Certificado No. ${cert.certificateNumber}`, 600, 660);
 
-    // Marca de agua
-    ctx.fillStyle = '#4A90A4';
-    ctx.font = 'bold 16px Arial';
-    ctx.fillText('LOGEVITY - Medicina Regenerativa', 600, 720);
+      // Marca de agua
+      ctx.fillStyle = '#4A90A4';
+      ctx.font = 'bold 16px Arial';
+      ctx.fillText('Longevity 360 - Medicina Regenerativa', 600, 720);
+    };
 
-    // Descargar
-    const link = document.createElement('a');
-    link.download = `certificado-${cert.certificateNumber}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
+    const doDownload = () => {
+      const link = document.createElement('a');
+      link.download = `certificado-${cert.certificateNumber}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    };
+
+    const img = new Image();
+    img.onload = () => {
+      drawCertificate(img);
+      doDownload();
+    };
+    img.onerror = () => {
+      drawCertificate(null);
+      doDownload();
+    };
+    img.src = '/logos/Longevity360_Mesa de trabajo 1.png';
   };
 
   if (certificates.length === 0) {
@@ -187,7 +203,11 @@ const Certificates = () => {
                     <Award className="w-6 h-6 sm:w-8 sm:h-8 text-logevity/30 dark:text-logevity-accent/30" />
                   </div>
                   <div className="text-center">
-                    <Heart className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-logevity dark:text-logevity-accent mb-2" />
+                    <img
+                      src="/logos/Longevity360_Mesa de trabajo 1.png"
+                      alt="Longevity 360"
+                      className="h-6 sm:h-8 w-auto object-contain mx-auto mb-2"
+                    />
                     <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                       Certificado
                     </p>
@@ -239,9 +259,11 @@ const Certificates = () => {
                 <div className="text-center relative">
                   {/* Logo */}
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-logevity rounded-full flex items-center justify-center">
-                      <Heart className="w-8 h-8 text-white" />
-                    </div>
+                    <img
+                      src="/logos/Longevity360_Mesa de trabajo 1.png"
+                      alt="Longevity 360"
+                      className="h-16 w-auto object-contain"
+                    />
                   </div>
 
                   {/* Título */}
@@ -283,7 +305,7 @@ const Certificates = () => {
 
                   {/* Firma */}
                   <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-logevity dark:text-logevity-accent font-semibold">LOGEVITY</p>
+                    <p className="text-logevity dark:text-logevity-accent font-semibold">Longevity 360</p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">Medicina Regenerativa</p>
                   </div>
                 </div>
@@ -307,7 +329,7 @@ const Certificates = () => {
                     if (navigator.share) {
                       navigator.share({
                         title: 'Mi certificado',
-                        text: `¡Completé ${selectedCertificate.moduleTitle} en LOGEVITY!`,
+                        text: `¡Completé ${selectedCertificate.moduleTitle} en Longevity 360!`,
                         url: window.location.href
                       });
                     }

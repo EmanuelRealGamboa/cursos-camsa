@@ -11,7 +11,8 @@ import {
   QuizView,
   Certificates,
   Profile,
-  CoursesList
+  CoursesList,
+  Blog
 } from './pages';
 
 // Componente para rutas protegidas
@@ -82,6 +83,7 @@ function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/courses" element={<CoursesList />} />
         <Route path="/course/:courseId" element={<CourseView />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
